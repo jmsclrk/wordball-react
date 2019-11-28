@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import $ from 'jquery';
 
 class SkillGame extends Component {
+
+  componentDidMount() {
+    $('#canvas').click(() => {
+      console.log('skill click')
+    })
+  }
+
+
   render() {
     return (
     <div className="App">

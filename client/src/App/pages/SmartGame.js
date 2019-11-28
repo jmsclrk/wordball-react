@@ -44,13 +44,13 @@ class SmartGame extends Component {
         })
     });
 
-    generateLetterButtons ()
+    generateLetterButtons()
+
     let wordInput = ''
     $('#typearea').text(wordInput)
 
     $('#clearbutton').click(() => {
       clearTextInput()
-      console.log(this)
     })
 
     $('[class*="letterbutton-on"]').click((event) => {
@@ -90,8 +90,6 @@ class SmartGame extends Component {
     }
 
     function gameOver() {
-      console.log('GAME OVER')
-      console.log(this)
       $("#navnext").trigger( "click" );
     }
   }
