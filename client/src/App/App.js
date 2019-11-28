@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { MemoryRouter } from 'react-router'
 import './App.css';
 import Home from './pages/Home';
 import SkillGame from './pages/SkillGame';
@@ -21,9 +22,9 @@ class App extends Component {
       </div>
     )
     return (
-      <Switch>
+      <MemoryRouter>
         <App/>
-      </Switch>
+      </MemoryRouter>
     );
   }
 }

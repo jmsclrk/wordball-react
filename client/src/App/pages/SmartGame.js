@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import Letter from '../../model/letter'
+import {withRouter} from 'react-router-dom';
+
 
 class SmartGame extends Component {
   constructor(props) {
@@ -19,6 +21,22 @@ class SmartGame extends Component {
     const letterGetReq = game.playerLetters.join('').toLowerCase()
     const letters = new Letter()
     $('#validwordslist').html('')
+    const timeInterval = setInterval(countdown, 1000)
+    let timeLeft = 5
+    $('#score').text('Current Score: ' + game.smartPoints)
+    $('#validwordslist').html('')
+    $("#navnext").hide()
+    function countdown(object) {
+    if (timeLeft === 0) {
+      clearInterval(timeInterval)
+      gameOver()
+      } else {
+        $('#timer').text(timeLeft + ' seconds remaining')
+        timeLeft--
+      }
+    }
+
+    countdown(this)
 
     $.get(`https://jsonp.afeld.me/?url=http://anagramica.com/all/:${letterGetReq}`, function(data) {
         game.possibleWords = data.all.filter((w) => { if (w.length > 2) { return true } }).map((w) => {
@@ -32,10 +50,10 @@ class SmartGame extends Component {
 
     $('#clearbutton').click(() => {
       clearTextInput()
+      console.log(this)
     })
 
     $('[class*="letterbutton-on"]').click((event) => {
-      console.log(event.currentTarget.className)
       if (event.currentTarget.className === "letterbutton-off") { return }
       wordInput += event.currentTarget.innerHTML
       event.currentTarget.className = "letterbutton-off"
@@ -59,7 +77,6 @@ class SmartGame extends Component {
     function clearTextInput () {
       wordInput = ''
       $('#typearea').text(wordInput)
-
       $('.letterbutton-off').each((_index, button) => {
         $(button).attr('class', `letterbutton-on${button.value}`)
       })
@@ -73,6 +90,9 @@ class SmartGame extends Component {
     }
 
     function gameOver() {
+      console.log('GAME OVER')
+      console.log(this)
+      $("#navnext").trigger( "click" );
     }
   }
 
@@ -80,6 +100,7 @@ class SmartGame extends Component {
     return (
     <div className="App">
       <div id="smartapp">
+      <div id="timer"></div>
         <center>
           <div id='gamediv'>
             <div id="validwords">
@@ -98,7 +119,7 @@ class SmartGame extends Component {
         </center>
       </div>
       <Link to={'./score'}>
-        <button variant="raised">
+        <button variant="raised" id="navnext">
             SCORES
         </button>
       </Link>
@@ -106,4 +127,4 @@ class SmartGame extends Component {
     );
   }
 }
-export default SmartGame;
+export default withRouter(SmartGame);
