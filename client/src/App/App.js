@@ -19,7 +19,11 @@ class App extends Component {
           <Route path='/score' component={Scores}/>
           <Route path='/leaderboard' component={Leaderboard}/>
         </Switch>
+        <div id="bankedletters" value=""></div>
+        <div id="skillscore" value=""></div>
+        <div id="smartscore" value=""></div>
       </div>
+
     )
     return (
       <MemoryRouter>

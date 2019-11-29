@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import Letter from '../../model/letter'
+import { DEFAULT_TIMER } from '../../model/config'
 import {withRouter} from 'react-router-dom';
 
 
 class SmartGame extends Component {
   constructor(props) {
     super(props);
-    this.state = { smartGame: { playerLetters: ['A', 'B', 'C', 'D', 'E'],
-      skillPoints: 20,
-      smartPoints: 0,
+    this.state = { smartGame: {
+      playerLetters: $("#bankedletters").attr('value').split(''),
+      score: 0,
       possibleWords:[],
       validWords: []
     }};
@@ -19,14 +20,12 @@ class SmartGame extends Component {
   componentDidMount() {
     const game = this.state.smartGame
     const letterGetReq = game.playerLetters.join('').toLowerCase()
-    const letters = new Letter()
-    $('#validwordslist').html('')
     const timeInterval = setInterval(countdown, 1000)
-    let timeLeft = 5
-    $('#score').text('Current Score: ' + game.smartPoints)
-    $('#validwordslist').html('')
+    let timeLeft = DEFAULT_TIMER
     $("#navnext").hide()
-    function countdown(object) {
+    const letters = new Letter()
+
+    function countdown() {
     if (timeLeft === 0) {
       clearInterval(timeInterval)
       gameOver()
@@ -35,8 +34,7 @@ class SmartGame extends Component {
         timeLeft--
       }
     }
-
-    countdown(this)
+    countdown()
 
     $.get(`https://jsonp.afeld.me/?url=http://anagramica.com/all/:${letterGetReq}`, function(data) {
         game.possibleWords = data.all.filter((w) => { if (w.length > 2) { return true } }).map((w) => {
@@ -58,13 +56,17 @@ class SmartGame extends Component {
       wordInput += event.currentTarget.innerHTML
       event.currentTarget.className = "letterbutton-off"
       $('#typearea').text(wordInput)
+      verifyWord()
+      $('#validwordslist').html(game.validWords.join(' - '))
+    })
+
+    function verifyWord () {
       if (!game.validWords.includes(wordInput) && game.possibleWords.includes(wordInput)) {
         game.validWords.push(wordInput)
         savePoints()
         clearTextInput()
       }
-      $('#validwordslist').html(game.validWords.join(' - '))
-    })
+    }
 
     function generateLetterButtons () {
       const buttonHTML = game.playerLetters.map((letter) => {
@@ -84,12 +86,13 @@ class SmartGame extends Component {
 
     function savePoints () {
       wordInput.split('').forEach((char) => {
-        game.smartPoints += letters.getScore(char)
+        game.score += letters.getScore(char)
       })
-      $('#score').text('Current Score: ' + game.smartPoints)
+      $('#score').text('Current Score: ' + game.score)
     }
 
     function gameOver() {
+      $("#smartscore").attr('value', game.score)
       $("#navnext").trigger( "click" );
     }
   }
