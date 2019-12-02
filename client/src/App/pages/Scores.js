@@ -18,21 +18,53 @@ class Scores extends Component {
   render() {
     return (
     <div className="App">
+
+    <center>
+
+
+
+    <div id='gamediv'>
       <div id="gameover">
-        <center>
-          <h1>Final Scores</h1>
-          <h3>Skill: <span id="skillpoints"></span></h3>
-          <h3>Smart: <span id="smartpoints"></span></h3>
-          <h2>Total: <span id="total"></span></h2>
-        </center>
-      </div>
+
       <Link to={'./'}>
-        <button variant="raised">
-            NEXT LEVEL
+        <button class='button' variant="raised">
+          NEXT LEVEL
         </button>
       </Link>
+
+      <table>
+        <tr>
+        <td colspan="3"> <h2>Final Scores</h2> </td>
+        </tr>
+
+        <tr>
+        <th><h2>Smart Score</h2></th>
+        <th><h2>Skil Score</h2></th>
+        <th><h2>Total</h2></th>
+
+        </tr>
+        <tr>
+        <th><h3><span id="smartpoints"></span></h3></th>
+        <th><h3><span id="skillpoints"></span></h3></th>
+        <th><h3><span id="total"></span></h3></th>
+        </tr>
+      </table>
+    <form>
+
+
+    <input class='textfield' type="text" name="name" />
+    <input type="submit" class='button' value="Save High Score!" />
+    </form>
+
     </div>
-    );
+
+
+      </div>
+
+  </center>
+
+    </div>
+    )
   }
 }
 

@@ -9,10 +9,22 @@ import Scores from './pages/Scores';
 // import Leaderboard from './pages/Leaderboard';
 import ScoreBoard from './pages/ScoreBoard';
 
+
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+
   render() {
     const App = () => (
       <div>
+
+      <header>
+        <h1> Word  Ball  <div id='extream'> X-TREAM </div> </h1>
+      </header>
+
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/skillgame' component={SkillGame} />
@@ -23,6 +35,11 @@ class App extends Component {
         <div id="bankedletters" value=""></div>
         <div id="skillscore" value=""></div>
         <div id="smartscore" value=""></div>
+
+        <footer>
+          <a href="http://www.github.com/Yasmineral/wordball" target="_blank">Visit the WordBall project on Github</a>
+        </footer>
+
       </div>
 
     )
