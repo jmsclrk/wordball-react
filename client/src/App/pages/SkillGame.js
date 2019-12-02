@@ -20,6 +20,7 @@ class SkillGame extends Component {
     $("#navnext").hide()
     $("#skillscore").hide()
     $("#smartscore").hide()
+    const letter = new Letter()
     const game = this.state.game
     const canvas = document.getElementById('canvas')
     const ctx = canvas.getContext('2d')
@@ -130,6 +131,8 @@ class SkillGame extends Component {
      })
     }
     function drawRectangle () {
+      const radius = game.balls[0].radius
+      var x = game.tLeftCorner[0] + radius
       ctx.beginPath()
       ctx.rect(game.tLeftCorner[0], game.tRightCorner[1], game.tRightCorner[0] - game.tLeftCorner[0], game.bRightCorner[1] - game.tLeftCorner[1])
       ctx.stroke()
@@ -137,6 +140,18 @@ class SkillGame extends Component {
       ctx.fill()
       ctx.fillStyle = 'white'
       ctx.fillText('Throw in here to make a word!', 115, 830)
+      game.word.forEach(function (item) {
+        ctx.fillStyle = letter.getColour(item)
+        ctx.beginPath()
+        ctx.lineWidth = 1
+        ctx.arc(x, game.tRightCorner[1] + 35, radius, 0, 2 * Math.PI)
+        ctx.fill()
+        ctx.stroke()
+        ctx.fillStyle = 'white'
+        ctx.fillText(item, x - 10, game.tRightCorner[1] + 41)
+        x += radius * 2
+    })
+
     }
     function drawBall (ball) {
       ball.position()

@@ -23,27 +23,12 @@ class Leaderboard extends Component {
     const { list } = this.state;
 
     return (
-      <div className="App">
-        <h1>Leaderboard</h1>
-        {list.length ? (
-          <div>
-            {list.map((item) => {
-              return(
-                <div>
-                  {item}
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div>
-            <h2>No Scores Found</h2>
-          </div>
-        )
-      }
-      </div>
-    );
-  }
+      <ul>
+      {list.map(function(item, index){
+        return <li key={ index }>{item.name+" -----smartscore----- "+item.smartscore+" -----skillscore----- "+item.skillscore}</li>;
+      })}
+    </ul>
+  )}
 }
 
 export default Leaderboard;
