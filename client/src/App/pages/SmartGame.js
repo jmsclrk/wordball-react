@@ -26,6 +26,7 @@ class SmartGame extends Component {
     const letters = new Letter()
 
     function countdown() {
+      $('#score').text('Current Score: ' + game.score)
     if (timeLeft === 0) {
       clearInterval(timeInterval)
       gameOver()
@@ -101,7 +102,7 @@ class SmartGame extends Component {
     return (
     <div className="App">
       <div id="smartapp">
-      <div id="timer"></div>
+      <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
         <center>
           <div id='gamediv'>
             <div id="validwords">

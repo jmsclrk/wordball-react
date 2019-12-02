@@ -24,6 +24,7 @@ MongoClient.connect('mongodb+srv://jess:JL731996@cluster0-cfgis.mongodb.net/test
   app.get('/api/getLeaderboard', (req,res) => {
     db.collection('scores').find()
     .toArray(function(err, results) {
+      list =  []
       results.forEach((item) => {
         list.push(`${item.name} ---- skill: ${item.skillscore} - smart: ${item.smartscore}`)
       })

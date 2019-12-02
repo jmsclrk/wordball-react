@@ -23,6 +23,8 @@ class SkillGame extends Component {
     const game = this.state.game
     const canvas = document.getElementById('canvas')
     const ctx = canvas.getContext('2d')
+    const canvas2 = document.getElementById('canvas2')
+    const ctx2 = canvas2.getContext('2d')
     const timeInterval = setInterval(countdown, 1000)
     let interval
     $("#score").show()
@@ -66,6 +68,7 @@ class SkillGame extends Component {
 
     function draw () {
       $('#score').text('Current Score: ' + game.score)
+      fillBalls()
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.font = '20px Arial'
       game.checkBallDone(ball)
@@ -98,6 +101,34 @@ class SkillGame extends Component {
         ctx.fillText('x' + item.score, item.xPos - 8, item.yPos)
       })
     }
+    function drawPath (ctx, colour, x1, y1, x2, y2) {
+      ctx.strokeStyle = colour
+      ctx.beginPath()
+      ctx.lineWidth = 5
+      ctx.moveTo(x1, y1)
+      ctx.lineTo(x2, y2)
+      ctx.stroke()
+      ctx.strokeStyle = 'black'
+      ctx.lineWidth = 1
+    }
+
+    function fillBalls () {
+      const radius = game.balls[0].radius
+     ctx2.font = '20px Arial'
+     ctx2.clearRect(0, 0, canvas2.width, canvas2.height)
+     var y = 920
+     game.balls.forEach(function (item) {
+       if (item.isClicked === false) {
+         ctx2.beginPath()
+         ctx2.fillStyle = item.colour
+         ctx2.lineWidth = 0
+         ctx2.arc(canvas2.width / 2, y, radius, 0, 2 * Math.PI)
+         ctx2.fill()
+         ctx2.stroke()
+         y -= 40
+       }
+     })
+    }
     function drawRectangle () {
       ctx.beginPath()
       ctx.rect(game.tLeftCorner[0], game.tRightCorner[1], game.tRightCorner[0] - game.tLeftCorner[0], game.bRightCorner[1] - game.tLeftCorner[1])
@@ -111,6 +142,9 @@ class SkillGame extends Component {
       ball.position()
       const x = ball.xPos
       const y = ball.yPos
+      if (inBounds(y2) && ball.isClicked === false) {
+        drawPath(ctx, ball.colour, ball.xPos, ball.yPos, x2, y2)
+      }
       ctx.fillStyle = ball.colour
       ctx.beginPath()
       ctx.arc(x, y, ball.radius, 0, 2 * Math.PI)
@@ -128,14 +162,17 @@ class SkillGame extends Component {
       }
     }
   }
-
   render() {
     return (
     <div className="App">
       <div id="skillapp">
-      <div id="timer"></div>
+
+      <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
+
         <center>
+
           <canvas id="canvas" width="500" height="900"></canvas>
+          <canvas id="canvas2" width="50" height="900"></canvas>
         </center>
       </div>
       <Link to={'./smartgame'}>
