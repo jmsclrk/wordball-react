@@ -14,6 +14,7 @@ class Leaderboard extends Component {
   }
 
   getList = () => {
+    console.log('requested')
     fetch('/api/getLeaderboard')
     .then(res => res.json())
     .then(list => this.setState({ list }))
