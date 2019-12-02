@@ -36,12 +36,12 @@ export default function HighScore(props) {
   }
 
   const totalScore = () => {
-    return (smartScore + skillscore)
+    return (smartScore() + skillScore())
   }
 
 
   return (
-    <tr key={props.playerName} className='highscore' style={scoreStyle}>
+    <tr key={playerName()} className='highscore' style={scoreStyle}>
       <td>{playerPicture()}</td>
       <td>{playerName()}</td>
       <td>{smartScore()}</td>
