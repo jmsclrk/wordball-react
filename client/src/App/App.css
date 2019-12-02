@@ -103,6 +103,11 @@ header h1 {
   color: #FFC107;
 }
 
+.textfield {
+  height:40px;
+  font-size: 18px;
+}
+
 main {
   grid-area: main;
   place-self: center;

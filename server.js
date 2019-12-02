@@ -26,8 +26,9 @@ MongoClient.connect('mongodb+srv://jess:JL731996@cluster0-cfgis.mongodb.net/test
     .toArray(function(err, results) {
       list =  []
       results.forEach((item) => {
-        list.push(`${item.name} ---- skill: ${item.skillscore} - smart: ${item.smartscore}`)
+        list.push(item)
       })
+      console.log(list)
       res.json(list);
     })
   })

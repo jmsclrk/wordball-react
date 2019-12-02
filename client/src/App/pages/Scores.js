@@ -49,8 +49,18 @@ class Scores extends Component {
         <th><h3><span id="total"></span></h3></th>
         </tr>
       </table>
+    <form>
+
+
+    <input class='textfield' type="text" name="name" />
+    <input type="submit" class='button' value="Save High Score!" />
+    </form>
+
+    </div>
+
+
       </div>
-      </div>
+
   </center>
 
     </div>
