@@ -9,12 +9,10 @@ class Leaderboard extends Component {
     }
   }
 
-  // Fetch the list on first mount
   componentDidMount() {
     this.getList();
   }
 
-  // Retrieves the list of items from the Express app
   getList = () => {
     fetch('/api/getLeaderboard')
     .then(res => res.json())
@@ -27,10 +25,8 @@ class Leaderboard extends Component {
     return (
       <div className="App">
         <h1>Leaderboard</h1>
-        {/* Check to see if any items are found*/}
         {list.length ? (
           <div>
-            {/* Render the list of items */}
             {list.map((item) => {
               return(
                 <div>
@@ -41,7 +37,7 @@ class Leaderboard extends Component {
           </div>
         ) : (
           <div>
-            <h2>No List Items Found</h2>
+            <h2>No Scores Found</h2>
           </div>
         )
       }

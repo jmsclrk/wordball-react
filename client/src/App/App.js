@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { MemoryRouter } from 'react-router'
 import './App.css';
 import Home from './pages/Home';
 import SkillGame from './pages/SkillGame';
@@ -18,12 +19,16 @@ class App extends Component {
           <Route path='/score' component={Scores}/>
           <Route path='/leaderboard' component={Leaderboard}/>
         </Switch>
+        <div id="bankedletters" value=""></div>
+        <div id="skillscore" value=""></div>
+        <div id="smartscore" value=""></div>
       </div>
+
     )
     return (
-      <Switch>
+      <MemoryRouter>
         <App/>
-      </Switch>
+      </MemoryRouter>
     );
   }
 }
