@@ -8,7 +8,24 @@ import SmartGame from './pages/SmartGame';
 import Scores from './pages/Scores';
 import Leaderboard from './pages/Leaderboard';
 
+
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+    this.connecToServer = this.connecToServer.bind(this);
+  }
+
+  connecToServer() {
+    fetch('/');
+  }
+
+  componentDidMount() {
+    this.connecToServer();
+  }
+
+
   render() {
     const App = () => (
       <div>
