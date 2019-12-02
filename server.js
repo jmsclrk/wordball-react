@@ -21,10 +21,6 @@ MongoClient.connect('mongodb+srv://jess:JL731996@cluster0-cfgis.mongodb.net/test
     })
   })
 
-  app.get('/', function(req, res) {
-    res.sendFile('/index.html')
-  })
-
   app.get('/api/getLeaderboard', (req,res) => {
     db.collection('scores').find()
     .toArray(function(err, results) {
@@ -33,20 +29,4 @@ MongoClient.connect('mongodb+srv://jess:JL731996@cluster0-cfgis.mongodb.net/test
       })
       res.json(list);
     })
-
   })
-
-
-  app.get('/leaderboard', function(req, res) {
-    db.collection('scores').find()
-      .toArray(function(err, results) {
-      res.render('index.ejs', {scores: results})
-    })
-  })
-
-app.post('/scores', (req, res) => {
-  db.collection('scores').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-    res.redirect('/')
-  })
-})
