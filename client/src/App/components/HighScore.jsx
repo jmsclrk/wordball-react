@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default HighScore(props){
+export default function HighScore(props) {
 
   const scoreStyle = {
     // ADD CSS
@@ -10,20 +10,33 @@ export default HighScore(props){
     maxheight: 50 + 'px',
   }
 
-  const playerPicture = () {
-    if (props.picture) {
-      return <img src="{props.picture}" alt="Picture of player" style='profileImageStyle' ></img>
+  function replaceMissing(prop, returnIfMissing) {
+    if (prop) {
+      return prop
     } else {
-      return <img src="client/public/default-profile-picture.jpg" alt="Default player image" style='profileImageStyle'></img>
+      return returnIfMissing
     }
   }
 
-  const playerName = () {
-    if (props.playerName) {
-      return <h3>props.playerName</h3>
-    } else {
-      return <h3>The Mysterious Stranger</h3>
-    }
+  const playerPicture = () => {
+    const imageSrc = replaceMissing(props.picture, 'client/public/default-profile-picture.jpg')
+    return (<img src={imageSrc} alt="Default player image" style='{profileImageStyle}' ></img>)
+  }
+
+  const playerName = () => {
+    return replaceMissing(props.playerName, 'The Mysterious Stranger')
+  }
+
+  const smartScore = () => {
+    return replaceMissing(props.smartScore, 0)
+  }
+
+  const skillScore = () => {
+    return replaceMissing(props.skillScore, 0)
+  }
+
+  const totalScore = () => {
+    return (smartScore + skillscore)
   }
 
 
@@ -31,9 +44,9 @@ export default HighScore(props){
     <tr key={props.playerName} className='highscore' style={scoreStyle}>
       <td>{playerPicture()}</td>
       <td>{playerName()}</td>
-      <td>{props.skillscore}</td>
-      <td>{props.smartscore}</td>
-      <td>{props.smartscore + props.skillscore}</td>
+      <td>{smartScore()}</td>
+      <td>{skillScore()}</td>
+      <td>{totalScore()}</td>
     </tr>
   )
 }
