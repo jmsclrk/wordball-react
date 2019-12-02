@@ -30,3 +30,7 @@ MongoClient.connect('mongodb+srv://jess:JL731996@cluster0-cfgis.mongodb.net/test
       res.json(list);
     })
   })
+
+  app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
