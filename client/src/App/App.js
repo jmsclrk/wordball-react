@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { MemoryRouter } from 'react-router'
-import './App.css';
+import '../style/App.css';
 import Home from './pages/Home';
 import SkillGame from './pages/SkillGame';
 import SmartGame from './pages/SmartGame';
@@ -21,9 +21,9 @@ class App extends Component {
     const App = () => (
       <div>
 
-      <header>
-        <h1> Word  Ball  <div id='extream'> X-TREAM </div> </h1>
-      </header>
+        <header>
+          <h1> Word  Ball  <div id='extreme'> X-TREME </div> </h1>
+        </header>
 
         <Switch>
           <Route exact path='/' component={Home} />
