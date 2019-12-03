@@ -23,8 +23,7 @@ class SmartGame extends Component {
   componentDidMount() {
     const game = this.state.smartGame
     const letterGetReq = game.playerLetters.join('').toLowerCase()
-    console.log(letterGetReq)
-    if (letterGetReq.length < 3) {
+    if(letterGetReq.length<3) {
       gameOver()
     }
 
