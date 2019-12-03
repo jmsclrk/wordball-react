@@ -1,12 +1,12 @@
 export default class Ball {
-  constructor (x, y, radius, letter, canvas) {
+  constructor (y, radius, letter, canvas) {
     // letter details
     this.letter = letter.character
     this.colour = letter.colour
     this.score = letter.score
     //
     this.radius = radius
-    this.xPos = x
+    this.xPos = 100 + Math.floor(Math.random() * 300)
     this.yPos = y
     this.xVel = 0
     this.yVel = 0
@@ -23,9 +23,6 @@ export default class Ball {
     if(this.isClicked === false) {
       var dy = y2-y1
       var dx = x2-x1
-      if(dy<-100) {
-        dy = -100
-      }
       this.xVel = dx
       this.yVel = dy
       this.isClicked = true
