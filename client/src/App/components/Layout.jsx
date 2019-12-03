@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Content from './Content'
 
-export function Layout(props) {
+export default function Layout(props) {
 
   const layoutStyle = {
     margin: 20,

@@ -1,10 +1,12 @@
 import React from 'react'
 
-export function Footer(props) {
+export default function Footer(props) {
 
   return (
     <div>
-      {props.children}
+      <footer>
+        <a href="http://www.github.com/Yasmineral/wordball" target="_blank">Visit the WordBall project on Github</a>
+      </footer>
     </div>
   )
 }

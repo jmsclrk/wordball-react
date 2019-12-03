@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Content(props) {
+export default function Content(props) {
 
   return (
     <div>

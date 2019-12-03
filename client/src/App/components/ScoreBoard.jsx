@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import HighScore from './HighScore'
-
+import Layout from './Layout'
 
 export default function ScoreBoard(props) {
 
@@ -31,21 +31,24 @@ export default function ScoreBoard(props) {
   }
 
   return (
-    <div className='container'>
-      <table className='table is-striped'>
-        <thead><h3>{getTitle()}</h3>
-        </thead>
-        <tbody>
-          <tr >
-            <th>Avatar</th>
-            <th>Player Name</th>
-            <th>Balls Score</th>
-            <th>Words Score</th>
-            <th>Total</th>
-          </tr>
-          {buildHTML(getScores)}
-        </tbody>
-      </table>
-    </div>
+
+    <Layout>
+      <div className='container'>
+        <table className='table is-striped'>
+          <thead><h3>{getTitle()}</h3>
+          </thead>
+          <tbody>
+            <tr >
+              <th>Avatar</th>
+              <th>Player Name</th>
+              <th>Balls Score</th>
+              <th>Words Score</th>
+              <th>Total</th>
+            </tr>
+            {buildHTML(getScores)}
+          </tbody>
+        </table>
+      </div>
+    </Layout>
   )
 }

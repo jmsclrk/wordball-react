@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export function Header(props) {
+export default function Header(props) {
 
   return (
-    <div>
-      {props.children}
-    </div>
+    <Link to={'./'}>
+      <header className='container'>
+        <h1> Word  Ball  <div id='extreme'> X-TREME </div> </h1>
+      </header>
+    </Link>
   )
 }
