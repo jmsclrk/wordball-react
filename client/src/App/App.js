@@ -22,7 +22,7 @@ class App extends Component {
       <div>
 
       <header>
-        <h1> Word  Ball  <div id='extream'> X-TREAM </div> </h1>
+        <h1> Word  Ball  <div id='extream'> EXTREME </div> </h1>
       </header>
 
         <Switch>
