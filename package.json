@@ -10,6 +10,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "cypress:run": "cypress run",
     "cypress:open": "cypress open"
   },
   "keywords": [],
