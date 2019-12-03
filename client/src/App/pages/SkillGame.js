@@ -41,7 +41,13 @@ class SkillGame extends Component {
     }
 
     countdown()
-    game.letters.forEach(letter => game.balls.push(new Ball(250, 750, 15, letter, canvas)))
+    var xVal
+    if (process.env.NODE_ENV === 'production') {
+      xVal = null
+    } else {
+      xVal = 250
+    }
+    game.letters.forEach(letter => game.balls.push(new Ball(15, letter, canvas, xVal)))
     var ball = game.balls[0]
     interval = setInterval(draw, 10)
 
@@ -177,6 +183,7 @@ class SkillGame extends Component {
       }
     }
   }
+
   render() {
     return (
     <div className="App">
