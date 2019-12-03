@@ -39,7 +39,6 @@ class SkillGame extends Component {
       timeLeft = 12
     }
 
-    DEFAULT_TIMER
     function countdown() {
       if (timeLeft === 0) {
         game.forceGameOver()

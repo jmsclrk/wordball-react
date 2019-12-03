@@ -11,7 +11,7 @@ export default function Home() {
             <h1>Welcome To Wordball</h1>
             {/* Link to List.js */}
             <Link to={'./skillgame'}>
-              <button variant="raised" class='navbuttons'> PLAY </button>
+              <button variant="raised" id="playbutton" class='navbuttons'> PLAY </button>
             </Link>
             <Link to={'./leaderboard'}>
               <button variant="raised" class='navbuttons'>LEADERBOARD</button>
