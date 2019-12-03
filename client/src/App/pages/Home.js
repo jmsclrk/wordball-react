@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import LevelTable from '../components/LevelTable'
 
 
 class Home extends Component {
@@ -23,6 +24,7 @@ class Home extends Component {
         </button>
       </Link>
       </div>
+        <LevelTable/>
       </center>
     </div>
     );

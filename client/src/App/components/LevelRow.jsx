@@ -1,6 +1,6 @@
 import React from 'react'
 
-function LevelRow(props) {
+export default function LevelRow(props) {
 
   return (
     <tr>

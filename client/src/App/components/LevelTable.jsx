@@ -1,7 +1,10 @@
 import React from 'react'
 import LevelRow from './LevelRow'
 
-function LevelTable () {
+
+export default function LevelTable () {
+  
+  
   return (
     <table>
       <tr>
