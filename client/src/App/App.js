@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { MemoryRouter } from 'react-router'
-import './App.css';
+import '../style/App.css';
 import Home from './pages/Home';
 import SkillGame from './pages/SkillGame';
 import SmartGame from './pages/SmartGame';
@@ -20,11 +20,6 @@ class App extends Component {
   render() {
     const App = () => (
       <div>
-
-      <header>
-        <h1> Word  Ball  <div id='extream'> EXTREME </div> </h1>
-      </header>
-
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/skillgame' component={SkillGame} />
@@ -35,13 +30,7 @@ class App extends Component {
         <div id="bankedletters" value=""></div>
         <div id="skillscore" value=""></div>
         <div id="smartscore" value=""></div>
-
-        <footer>
-          <a href="http://www.github.com/Yasmineral/wordball" target="_blank">Visit the WordBall project on Github</a>
-        </footer>
-
       </div>
-
     )
     return (
       <MemoryRouter>

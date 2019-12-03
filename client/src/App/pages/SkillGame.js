@@ -41,9 +41,9 @@ class SkillGame extends Component {
 
     DEFAULT_TIMER
     function countdown() {
-    if (timeLeft === 0) {
-      game.forceGameOver()
-      clearInterval(timeInterval)
+      if (timeLeft === 0) {
+        game.forceGameOver()
+        clearInterval(timeInterval)
       } else {
         $('#timer').text(timeLeft + ' seconds remaining')
         timeLeft--
@@ -59,7 +59,7 @@ class SkillGame extends Component {
     let y2
 
     function inBounds(y) {
-      if(y<600) {
+      if (y < 600) {
         return false
       }
       return true
@@ -67,17 +67,17 @@ class SkillGame extends Component {
 
     $('#canvas').mousedown(function (canvas) {
       const offset = $(this).offset()
-      $('#canvas').bind('mousemove', function(e){
+      $('#canvas').bind('mousemove', function (e) {
         x2 = e.pageX - offset.left
         y2 = e.pageY - offset.top
-         $('#canvas').mouseup(function (canvas) {
-           if (inBounds(y2)) { ball.giveVelocity(ball.xPos,ball.yPos, x2, y2)}
+        $('#canvas').mouseup(function (canvas) {
+          if (inBounds(y2)) { ball.giveVelocity(ball.xPos, ball.yPos, x2, y2) }
         })
       })
     })
 
 
-    function draw () {
+    function draw() {
       $('#score').text('Current Score: ' + game.score)
       fillBalls()
       ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -101,8 +101,8 @@ class SkillGame extends Component {
       ctx.lineTo(500, 600);
       ctx.stroke();
     }
-    function drawHoles (array) {
-      array.forEach(function drawHole (item) {
+    function drawHoles(array) {
+      array.forEach(function drawHole(item) {
         ctx.fillStyle = 'black'
         ctx.beginPath()
         ctx.arc(item.xPos, item.yPos, item.radius, 0, 2 * Math.PI)
@@ -112,7 +112,7 @@ class SkillGame extends Component {
         ctx.fillText('x' + item.score, item.xPos - 8, item.yPos)
       })
     }
-    function drawPath (ctx, colour, x1, y1, x2, y2) {
+    function drawPath(ctx, colour, x1, y1, x2, y2) {
       ctx.strokeStyle = colour
       ctx.beginPath()
       ctx.lineWidth = 5
@@ -123,24 +123,24 @@ class SkillGame extends Component {
       ctx.lineWidth = 1
     }
 
-    function fillBalls () {
+    function fillBalls() {
       const radius = game.balls[0].radius
-     ctx2.font = '20px Arial'
-     ctx2.clearRect(0, 0, canvas2.width, canvas2.height)
-     var y = 920
-     game.balls.forEach(function (item) {
-       if (item.isClicked === false) {
-         ctx2.beginPath()
-         ctx2.fillStyle = item.colour
-         ctx2.lineWidth = 0
-         ctx2.arc(canvas2.width / 2, y, radius, 0, 2 * Math.PI)
-         ctx2.fill()
-         ctx2.stroke()
-         y -= 40
-       }
-     })
+      ctx2.font = '20px Arial'
+      ctx2.clearRect(0, 0, canvas2.width, canvas2.height)
+      var y = 920
+      game.balls.forEach(function (item) {
+        if (item.isClicked === false) {
+          ctx2.beginPath()
+          ctx2.fillStyle = item.colour
+          ctx2.lineWidth = 0
+          ctx2.arc(canvas2.width / 2, y, radius, 0, 2 * Math.PI)
+          ctx2.fill()
+          ctx2.stroke()
+          y -= 40
+        }
+      })
     }
-    function drawRectangle () {
+    function drawRectangle() {
       const radius = game.balls[0].radius
       var x = game.tLeftCorner[0] + radius
       ctx.beginPath()
@@ -160,10 +160,10 @@ class SkillGame extends Component {
         ctx.fillStyle = 'white'
         ctx.fillText(item, x - 10, game.tRightCorner[1] + 41)
         x += radius * 2
-    })
+      })
 
     }
-    function drawBall (ball) {
+    function drawBall(ball) {
       ball.position()
       const x = ball.xPos
       const y = ball.yPos
@@ -178,35 +178,35 @@ class SkillGame extends Component {
       ctx.fillStyle = 'white'
       ctx.fillText(ball.letter, x + 5, y + 30)
     }
-    function checkGameOver () {
+    function checkGameOver() {
       if (game.isGameOver() === true) {
         clearInterval(interval)
-        $("#bankedletters").attr('value', game.word.join('') )
+        $("#bankedletters").attr('value', game.word.join(''))
         $("#skillscore").attr('value', game.score)
-        $("#navnext").trigger( "click" );
+        $("#navnext").trigger("click");
       }
     }
   }
 
   render() {
     return (
-    <div className="App">
-      <div id="skillapp">
+      <div className="App">
+        <div id="skillapp">
 
-      <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
+          <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
 
-        <center>
+          <center>
 
-          <canvas id="canvas" width="500" height="900"></canvas>
-          <canvas id="canvas2" width="50" height="900"></canvas>
-        </center>
-      </div>
-      <Link to={'./smartgame'}>
-        <button variant="raised" id="navnext">
+            <canvas id="canvas" width="500" height="900"></canvas>
+            <canvas id="canvas2" width="50" height="900"></canvas>
+          </center>
+        </div>
+        <Link to={'./smartgame'}>
+          <button variant="raised" id="navnext">
             NEXT
         </button>
-      </Link>
-    </div>
+        </Link>
+      </div>
     );
   }
 }

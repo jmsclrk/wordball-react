@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import HighScore from './HighScore'
+import Layout from './Layout'
 
 export default function ScoreBoard(props) {
 
   const [getScores, setScores] = useState(null)
-
-  const tableStyle = {
-    // ADD CSS
-    display: 'table-cell',
-  }
-
 
   function getList() {
     fetch('/api/getLeaderboard')
@@ -25,26 +20,35 @@ export default function ScoreBoard(props) {
   function buildHTML(highScores) {
     if (Array.isArray(highScores)) {
       return highScores.map((highScore, index) => {
-        <HighScore key={index} playerName={highScore.playerName} skillScore={highScore.skillScore} smartScore={highScore.smartScore} />
+        return <HighScore key={index} className='tbody' playerName={highScore.playerName} skillScore={highScore.skillScore} smartScore={highScore.smartScore} />
       })
     }
   }
 
+  function getTitle() {
+    if (props.title) { return props.title }
+    return 'Scoreboard'
+  }
+
   return (
-    <div class='container'>
-      <h2>{props.title}</h2>
-      <table className='tableStyle'>
-        <tr>
-          <th></th>
-          <th>Player Name</th>
-          <th>Balls Score</th>
-          <th>Words Score</th>
-          <th>Total</th>
-        </tr>
-        {buildHTML(getScores)}
-      </table>
-      <h3>Debug Data:</h3>
-      <div>{getScores}</div>
-    </div>
+
+    <Layout>
+      <div className='container'>
+        <table className='table is-striped'>
+          <thead><h3>{getTitle()}</h3>
+          </thead>
+          <tbody>
+            <tr >
+              <th>Avatar</th>
+              <th>Player Name</th>
+              <th>Balls Score</th>
+              <th>Words Score</th>
+              <th>Total</th>
+            </tr>
+            {buildHTML(getScores)}
+          </tbody>
+        </table>
+      </div>
+    </Layout>
   )
 }

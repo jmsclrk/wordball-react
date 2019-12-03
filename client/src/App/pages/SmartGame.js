@@ -3,18 +3,21 @@ import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import Letter from '../../model/letter'
 import { DEFAULT_TIMER } from '../../model/config'
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import '../../style/smartgame.css'
 
 
 class SmartGame extends Component {
   constructor(props) {
     super(props);
-    this.state = { smartGame: {
-      playerLetters: $("#bankedletters").attr('value').split(''),
-      score: 0,
-      possibleWords:[],
-      validWords: []
-    }};
+    this.state = {
+      smartGame: {
+        playerLetters: $("#bankedletters").attr('value').split(''),
+        score: 0,
+        possibleWords: [],
+        validWords: []
+      }
+    };
   }
 
   componentDidMount() {
@@ -31,9 +34,9 @@ class SmartGame extends Component {
 
     function countdown() {
       $('#score').text('Current Score: ' + game.score)
-    if (timeLeft === 0) {
-      clearInterval(timeInterval)
-      gameOver()
+      if (timeLeft === 0) {
+        clearInterval(timeInterval)
+        gameOver()
       } else {
         $('#timer').text(timeLeft + ' seconds remaining')
         timeLeft--
@@ -41,10 +44,10 @@ class SmartGame extends Component {
     }
     countdown()
 
-    $.get(`https://jsonp.afeld.me/?url=http://anagramica.com/all/:${letterGetReq}`, function(data) {
-        game.possibleWords = data.all.filter((w) => { if (w.length > 2) { return true } }).map((w) => {
-          return w.toUpperCase()
-        })
+    $.get(`https://jsonp.afeld.me/?url=http://anagramica.com/all/:${letterGetReq}`, function (data) {
+      game.possibleWords = data.all.filter((w) => { if (w.length > 2) { return true } }).map((w) => {
+        return w.toUpperCase()
+      })
     });
 
     generateLetterButtons()
@@ -65,7 +68,7 @@ class SmartGame extends Component {
       $('#validwordslist').html(game.validWords.join(' - '))
     })
 
-    function verifyWord () {
+    function verifyWord() {
       if (!game.validWords.includes(wordInput) && game.possibleWords.includes(wordInput)) {
         game.validWords.push(wordInput)
         savePoints()
@@ -73,7 +76,7 @@ class SmartGame extends Component {
       }
     }
 
-    function generateLetterButtons () {
+    function generateLetterButtons() {
       const buttonHTML = game.playerLetters.map((letter) => {
         const score = letters.getScore(letter)
         return `<button class="letterbutton-on${score}" value="${score}">${letter}</button>`
@@ -81,7 +84,7 @@ class SmartGame extends Component {
       $('#letterkeys').html(buttonHTML.join('\n'))
     }
 
-    function clearTextInput () {
+    function clearTextInput() {
       wordInput = ''
       $('#typearea').text(wordInput)
       $('.letterbutton-off').each((_index, button) => {
@@ -89,7 +92,7 @@ class SmartGame extends Component {
       })
     }
 
-    function savePoints () {
+    function savePoints() {
       wordInput.split('').forEach((char) => {
         game.score += letters.getScore(char)
       })
@@ -98,38 +101,38 @@ class SmartGame extends Component {
 
     function gameOver() {
       $("#smartscore").attr('value', game.score)
-      $("#navnext").trigger( "click" );
+      $("#navnext").trigger("click");
     }
   }
 
   render() {
     return (
-    <div className="App">
-      <div id="smartapp">
-      <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
-        <center>
-          <div id='gamediv'>
-            <div id="validwords">
-              <u>WORDS</u>
-              <span id="validwordslist"></span>
+      <div className="App">
+        <div id="smartapp">
+          <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
+          <center>
+            <div id='gamediv'>
+              <div id="validwords">
+                <u>WORDS</u>
+                <span id="validwordslist"></span>
+              </div>
+              <div id="typebox">
+                <b><span id="typearea"></span></b><span className="blinking-cursor">_</span>
+              </div>
+              <div id="letterkeys">
+              </div>
+              <div id="clearword">
+                <button id="clearbutton">CLEAR</button>
+              </div>
             </div>
-            <div id="typebox">
-              <b><span id="typearea"></span></b><span className="blinking-cursor">_</span>
-            </div>
-            <div id="letterkeys">
-            </div>
-            <div id="clearword">
-              <button id="clearbutton">CLEAR</button>
-            </div>
-          </div>
-        </center>
-      </div>
-      <Link to={'./score'}>
-        <button variant="raised" id="navnext">
+          </center>
+        </div>
+        <Link to={'./score'}>
+          <button variant="raised" id="navnext">
             SCORES
         </button>
-      </Link>
-    </div>
+        </Link>
+      </div>
     );
   }
 }
