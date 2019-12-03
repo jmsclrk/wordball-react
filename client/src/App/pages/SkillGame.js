@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import { DEFAULT_TIMER } from '../../model/config'
+import { DEFAULT_TIMER, MAX_LETTERS } from '../../model/config'
 import Letter from '../../model/letter'
 import Ball from '../../model/ball'
 import Hole from '../../model/hole'
 import Level from '../../model/level'
 import Game from '../../model/SkillGame'
+import Seed from '../../model/seeds'
 
 
 class SkillGame extends Component {
   constructor(props) {
     super(props)
-    const level = new Level(743284, 20)
+    console.log(props.location)
+    this.seed = new Seed(props.location.levelWord.name)
+    const level = new Level(this.seed, MAX_LETTERS)
     this.state = { game: new Game(level) }
   }
 

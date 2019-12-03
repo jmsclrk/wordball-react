@@ -1,4 +1,4 @@
-export const MAX_LETTERS = 30
+export const MAX_LETTERS = 20
 export const DEFAULT_TIMER = 10
 
 export const letterGroups = {
