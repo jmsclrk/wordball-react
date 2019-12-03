@@ -1,0 +1,170 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+
+.button {
+  font-family: arial, sans-serif;
+  background-color: #512DA8;
+  padding: 14px 40px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Roboto&display=swap');
+
+table {
+  font-family: arial, sans-serif;
+  color: #ffffff;
+  border-collapse: collapse;
+  width: 90%;
+}
+td, th {
+  border: 2px solid white;
+  text-align: center;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #512DA8;
+   opacity:0.5;
+}
+
+tr:nth-child(odd) {
+  background-color: #512DA8;
+   opacity:0.5;
+}
+
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+article {
+  height: 100%;
+  align-self: center;
+  display: grid;
+  color: #212121;
+  background-color: #BDBDBD;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 5fr auto;
+  grid-template-areas:
+    "header  header  header"
+    ".       main    .     "
+    "footer  footer  footer";
+}
+
+header {
+  padding: 0;
+  margin: 0;
+  grid-area: header;
+  color:#FFFFFF;
+  background-color: #512DA8;
+}
+
+header h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 5em;
+  text-align: center;
+  font-family: 'Faster One', cursive;
+}
+
+#extream {
+  color: #FFC107;
+}
+
+.textfield {
+  height:40px;
+  font-size: 18px;
+}
+
+main {
+  grid-area: main;
+  place-self: center;
+}
+
+footer {
+  padding: 1em;
+  text-align: right;
+  background-color: #FFC107;
+  color: #212121;
+  grid-area: footer;
+}
+
+main .app {
+  background-color: #D1C4E9;
+  padding: 2em;
+}
+
+
+main .scoreinfo {
+  color: #FF2D9C;
+  font-family:'digital-clock-font';
+  font-size: 40px;
+  background-color: white;
+}
+
+
+canvas {
+  color: #212121;
+  background-image: url("background.png");
+  background-size: cover;
+  border:1px solid #673AB7;
+}
+
+span.details {
+  display: inline-block;
+  margin: 10px;
+  width: 200px;
+  height: 30px;
+  font-size: 18px;
+  padding: 30px;
+  border: 1px solid black;
+  background-color: #FFC107;
+}
+
+
+@keyframes rota {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fill {
+  0%        { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+
+@keyframes mask {
+  0%        { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}

@@ -7,7 +7,7 @@ export default function HighScore(props) {
   }
 
   const profileImageStyle = {
-    maxheight: 50 + 'px',
+    maxHeight: 20 + 'px',
   }
 
   function replaceMissing(prop, returnIfMissing) {
@@ -18,24 +18,24 @@ export default function HighScore(props) {
     }
   }
 
-  const playerPicture = () => {
-    const imageSrc = replaceMissing(props.picture, 'client/public/default-profile-picture.jpg')
-    return (<img src={imageSrc} alt="Default player image" style='{profileImageStyle}' ></img>)
+  function playerPicture() {
+    const imageSrc = replaceMissing(props.picture, require('../../images/default-profile-picture.jpg'))
+    return (<img src={imageSrc} alt="Default player" style={profileImageStyle} ></img>)
   }
 
-  const playerName = () => {
+  function playerName() {
     return replaceMissing(props.playerName, 'The Mysterious Stranger')
   }
 
-  const smartScore = () => {
+  function smartScore() {
     return replaceMissing(props.smartScore, 0)
   }
 
-  const skillScore = () => {
+  function skillScore() {
     return replaceMissing(props.skillScore, 0)
   }
 
-  const totalScore = () => {
+  function totalScore() {
     return (smartScore() + skillScore())
   }
 
