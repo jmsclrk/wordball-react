@@ -29,7 +29,17 @@ class SkillGame extends Component {
     const timeInterval = setInterval(countdown, 1000)
     let interval
     $("#score").show()
-    let timeLeft = DEFAULT_TIMER
+    let timeLeft
+    var xVal
+    if (process.env.NODE_ENV === 'production') {
+      xVal = null
+      timeLeft = DEFAULT_TIMER
+    } else {
+      xVal = 250
+      timeLeft = 12
+    }
+
+    DEFAULT_TIMER
     function countdown() {
     if (timeLeft === 0) {
       game.forceGameOver()
@@ -41,12 +51,6 @@ class SkillGame extends Component {
     }
 
     countdown()
-    var xVal
-    if (process.env.NODE_ENV === 'production') {
-      xVal = null
-    } else {
-      xVal = 250
-    }
     game.letters.forEach(letter => game.balls.push(new Ball(15, letter, canvas, xVal)))
     var ball = game.balls[0]
     interval = setInterval(draw, 10)
