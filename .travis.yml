@@ -17,7 +17,7 @@ install:
   - npm ci
 
 before_script:
-  - npm start -- --silent &
+  - npm run dev -- --silent &
 
 script:
   - npm run cypress:run
