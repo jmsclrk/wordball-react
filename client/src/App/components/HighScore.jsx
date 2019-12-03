@@ -19,7 +19,7 @@ export default function HighScore(props) {
   }
 
   function playerPicture() {
-    const imageSrc = replaceMissing(props.picture, require('../../images/default-profile-picture.jpg'))
+    const imageSrc = replaceMissing(props.picture, require('../../assets/default-profile-picture.jpg'))
     return (<img src={imageSrc} alt="Default player" style={profileImageStyle} ></img>)
   }
 
