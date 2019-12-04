@@ -32,11 +32,11 @@ export default function ScoreBoard(props) {
 
   return (
 
-    <Layout>
-      <div className='container'>
-        <table className='table is-striped'>
-          <thead><h3>{getTitle()}</h3>
-          </thead>
+    <Layout className='section'>
+      <div className='container is-centered'>
+        <h3>{getTitle()}</h3>
+        <table className='table is-striped is-hoverable is-centered'>
+          <thead></thead>
           <tbody>
             <tr >
               <th>Avatar</th>

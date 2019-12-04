@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser= require('body-parser')
+const bodyParser = require('body-parser')
 const path = require('path');
 
 const app = express();
@@ -14,21 +14,28 @@ MongoClient.connect('mongodb+srv://jess:JL731996@cluster0-cfgis.mongodb.net/test
 })
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 
-// ---------scores and leaderboard api--------------
-
-app.get('/api/getLeaderboard', (req,res) => {
-  console.log('reached')
+app.get('/api/getLeaderboard', (req, res) => {
+  console.log('reached scores')
   let list = []
   db.collection('scores').find()
-  .toArray(function(err, results) {
-    results.forEach((item) => {
-      list.push(`${item.name} ---- skill: ${item.skillscore} - smart: ${item.smartscore}`)
+    .toArray(function (err, results) {
+      results.forEach((item) => {
+        list.push(`${item.name} ---- skill: ${item.skillscore} - smart: ${item.smartscore}`)
+      })
+      res.json(list);
     })
-    res.json(list);
-  })
 })
+
+
+// app.get('/api/getLevelList', (req, res) => {
+//   console.log('reached levels')
+//   db.collection('levels').find()
+//     .then(levels => res.json(levels))
+//     .catch(err => res.status(400).json('error: ' + err));
+// })
+
 
 // ---------users api--------------
 
@@ -36,9 +43,10 @@ app.get('/api/getLeaderboard', (req,res) => {
 
 // ---------heroku deploy settings--------------
 
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
-  app.get('*', function(req, res) {
+  app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }

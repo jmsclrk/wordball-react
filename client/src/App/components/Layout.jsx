@@ -3,19 +3,18 @@ import React from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import Content from './Content'
+import '../../style/App.css'
 
 export default function Layout(props) {
 
   const layoutStyle = {
-    margin: 20,
-    padding: 20,
-    border: '1px solid #DDD'
+    minHeight: 100 + 'vh',
   };
 
   return (
-    <div style={layoutStyle}>
+    <div className='section is-centered' style={layoutStyle}>
       <Header />
-      <Content>
+      <Content >
         {props.children}
       </Content>
       <Footer />

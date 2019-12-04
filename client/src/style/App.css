@@ -1,10 +1,24 @@
-@import '/client/node_modules/bulma/css/bulma.css';
+
 @import url('https://fonts.googleapis.com/css?family=Faster+One|Roboto&display=swap');
 
-.App {
-  text-align: center;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
+/*
 .App-logo {
   height: 40vmin;
 }
@@ -36,9 +50,9 @@
   font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
-}
+} */
 
-
+/*
 table {
   font-family: arial, sans-serif;
   color: #ffffff;
@@ -58,9 +72,9 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color: #512DA8;
    opacity:0.5;
-}
+} */
 
-
+/*
 html, body {
   height: 100vh;
   width: 100vw;
@@ -167,4 +181,4 @@ span.details {
 @keyframes mask {
   0%        { opacity: 1; }
   50%, 100% { opacity: 0; }
-}
+} */

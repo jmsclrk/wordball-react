@@ -3,7 +3,7 @@ import React from 'react'
 export default function Content(props) {
 
   return (
-    <div>
+    <div className='section has-text-centered'>
       {props.children}
     </div>
   )

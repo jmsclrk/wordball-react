@@ -6,10 +6,6 @@ export default function HighScore(props) {
     // ADD CSS
   }
 
-  const profileImageStyle = {
-    maxHeight: 20 + 'px',
-  }
-
   function replaceMissing(prop, returnIfMissing) {
     if (prop) {
       return prop
@@ -20,7 +16,11 @@ export default function HighScore(props) {
 
   function playerPicture() {
     const imageSrc = replaceMissing(props.picture, require('../../assets/default-profile-picture.jpg'))
-    return (<img src={imageSrc} alt="Default player" style={profileImageStyle} ></img>)
+    return (
+      <figure className='image is-48x48'>
+        <img className='is-rounded' src={imageSrc} alt="Default player" ></img>
+      </figure>
+    )
   }
 
   function playerName() {
