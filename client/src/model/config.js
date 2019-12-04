@@ -1,5 +1,5 @@
 export const MAX_LETTERS = 20
-export const DEFAULT_TIMER = 10
+export const DEFAULT_TIMER = 60
 
 export const letterGroups = {
   EAIONRTLSU: 1,

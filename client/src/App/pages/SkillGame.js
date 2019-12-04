@@ -13,7 +13,7 @@ import Seed from '../../model/seeds'
 class SkillGame extends Component {
   constructor(props) {
     super(props)
-    console.log(props.location)
+    console.log(props)
     this.seed = new Seed(props.location.levelWord.name)
     const level = new Level(this.seed, MAX_LETTERS)
     this.state = { game: new Game(level) }

@@ -50,6 +50,11 @@ td, th {
   text-align: center;
   padding: 8px;
 }
+
+td, a {
+color: #ffffff;
+}
+
 tr:nth-child(even) {
   background-color: #512DA8;
    opacity:0.5;

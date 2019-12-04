@@ -23,8 +23,8 @@ class Home extends Component {
             LEADERBOARD
         </button>
       </Link>
+      <LevelTable/>
       </div>
-        <LevelTable/>
       </center>
     </div>
     );
