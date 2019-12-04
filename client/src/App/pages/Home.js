@@ -1,16 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { levelList } from '../../model/config'
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout'
 
 export default function Home() {
 
+  function getWord() {
+    let index = 0 //TODO remove magic number
+    return levelList[index]
+  }
+
   return (
     <Layout>
       <div className='buttons is-centered'>
         <p className="control">
-          <Link to={'./skillgame'}>
+          <Link to={{
+            pathname: './skillgame',
+            levelWord: { name: getWord() }
+          }}>
             <button className='button is-rounded is-primary is-inverted is-outlined'>Play Now</button>
           </Link>
+
         </p>
         <p className="control">
           <Link to={'./levels'}>
