@@ -24,6 +24,10 @@ app.get('/api/getLeaderboard', (req, res) => {
     })
 })
 
+app.post('/api/getLeaderboard', (req, res) => {
+  console.log(req.body)
+})
+
 
 // app.get('/api/getLevelList', (req, res) => {
 //   console.log('reached levels')

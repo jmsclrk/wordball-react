@@ -14,7 +14,19 @@ export default class Scores extends Component {
     $("#bankedletters").attr('value', '')
     $("#skillscore").attr('value', '')
     $("#smartscore").attr('value', '')
+
+    $('#scoresubmit').click(() => {
+      const data = {
+        name: $('#playername').val(),
+        smartscore: smartscore,
+        skillscore: skillscore,
+        total: smartscore + skillscore
+      }
+      $.post('/api/getLeaderboard', data )
+    })
   }
+
+
 
   render() {
     return (
@@ -42,10 +54,10 @@ export default class Scores extends Component {
             <br />
             <div className="is-centered field has-addons">
               <div className="control">
-                <input className="input" type="text" placeholder="Save your name on the high score table"></input>
+                <input id="playername" className="input" type="text" placeholder="Save your name on the high score table"></input>
               </div>
               <div className="control">
-                <a className="button is-primary is-inverted is-outline">Confirm</a>
+                <button id="scoresubmit" className="button is-primary is-inverted is-outline">Confirm</button>
               </div>
             </div>
           </div>

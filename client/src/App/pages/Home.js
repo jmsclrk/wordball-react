@@ -18,7 +18,7 @@ export default function Home() {
             pathname: './skillgame',
             levelWord: { name: getWord() }
           }}>
-            <button className='button is-rounded is-primary is-inverted is-outlined'>Play Now</button>
+            <button id='playbutton' className='button is-rounded is-primary is-inverted is-outlined'>Play Now</button>
           </Link>
 
         </p>
@@ -33,10 +33,6 @@ export default function Home() {
           </Link>
         </p>
       </div>
-<<<<<<< HEAD
       </Layout>
-=======
-    </Layout >
->>>>>>> 4efb0874e45039cdcce366a427de1fad360cb1cb
   )
 }
