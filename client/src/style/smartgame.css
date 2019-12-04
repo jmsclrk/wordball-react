@@ -1,23 +1,27 @@
 
 /* SMART GAME HTML STYLE */
 
+button:focus {
+  outline: none;
+}
+
 #gamediv {
   height: 900px;
   width: 500px;
   color: #212121;
-  background-image: url("../assets/background.png");
   background-size: cover;
-  background-color: lightpink;
-  border:1px solid #673AB7;
+  background-color: none;
+  border:3px solid white;
 }
 
 #validwords {
   height: 450px;
   width: 400px;
-  padding: 50px;
+  padding: 10px;
   border:0px solid #673AB7;
   font-size: 40px;
   text-align: center;
+  color: white
 }
 
 #validwordslist {
@@ -26,6 +30,7 @@
   text-align: center;
   display: block;
   padding-top: 15px;
+  color: white
 }
 
 #typebox {
@@ -33,11 +38,11 @@
   width: 400px;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
   border:0px solid #673AB7;
   font-size: 60px;
-  color: black;
+  color: white;
   text-align: center;
 }
 
@@ -46,8 +51,8 @@
   width: 400px;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
   border: 0px;
   font-size: 60px;
   color: black;
@@ -59,9 +64,9 @@
   width: 65px;
   font-size: 45px;
   border-radius: 50%;
-  background-color: #7DFF77;
-  border: 10px;
-  outline: none
+  background-color: transparent;
+  border: 3px solid #c1dfe8;
+  color: white
 }
 
 .letterbutton-on2 {
@@ -69,9 +74,9 @@
   width: 65px;
   font-size: 45px;
   border-radius: 50%;
-  background-color: #6ED7FF;
-  border: 10px;
-  outline: none
+  background-color: transparent;
+  border: 3px solid #79c4db;
+  color: white
 }
 
 .letterbutton-on3 {
@@ -79,9 +84,9 @@
   width: 65px;
   font-size: 45px;
   border-radius: 50%;
-  background-color: #F7FF56;
-  border: 10px;
-  outline: none
+  background-color: transparent;
+  border: 3px solid #32b5de;
+  color: white
 }
 
 .letterbutton-on4 {
@@ -89,9 +94,9 @@
   width: 65px;
   font-size: 45px;
   border-radius: 50%;
-  background-color: #FFB057;
-  border: 10px;
-  outline: none
+  background-color: transparent;
+  border: 3px solid #00ade8;
+  color: white
 }
 
 .letterbutton-on5 {
@@ -99,9 +104,9 @@
   width: 65px;
   font-size: 45px;
   border-radius: 50%;
-  background-color: #D491FF;
-  border: 10px;
-  outline: none
+  background-color: transparent;
+  border: 3px solid #0095d1;
+  color: white
 }
 
 .letterbutton-off {
@@ -109,37 +114,32 @@
   width: 65px;
   font-size: 45px;
   border-radius: 50%;
-  color: #2C2C2C;
-  background-color: black;
-  border: 10px;
-  outline: none
-}
-
-#clearword {
-  height: 70px;
-  width: 400px;
-  padding-left: 50px;
-  padding-right: 50px;
-  border: 0px;
-  font-size: 60px;
-  color: white;
-  text-align: center;
+  color: #da72f7;
+  background-color: transparent;
+  border: 3px solid #da72f7;
 }
 
 #clearbutton {
+  font-size: 30px;
+  text-align: center;
   color: white;
-  border: none;
   background-color: transparent;
-  height: 40px;
-  width: 120px;
-  font-size: 25px;
-  outline: none;
+  border: 0px
 }
+
+#verifybutton {
+  font-size: 60px;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  border: 0px
+}
+
 
 .blinking-cursor {
   font-weight: 100;
   font-size: 80px;
-  color: #2E3D48;
+  color: white;
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;
   -ms-animation: 1s blink step-end infinite;
@@ -152,7 +152,7 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
 
@@ -161,7 +161,7 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
 
@@ -170,7 +170,7 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
 
@@ -179,7 +179,7 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
 
@@ -188,6 +188,6 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }

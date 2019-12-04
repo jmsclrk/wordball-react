@@ -31,6 +31,14 @@ export default function Home() {
             <button className='button is-rounded is-primary is-outlined is-inverted'>Scoreboard</button>
           </Link>
         </p>
+        <p className="control">
+          <Link to={'./smartgame'}>
+            <button className='button is-rounded is-primary is-outlined is-inverted'>SmartGame Backdoor</button>
+          </Link>
+        </p>
+
+
+
       </div>
     </Layout>
   )
