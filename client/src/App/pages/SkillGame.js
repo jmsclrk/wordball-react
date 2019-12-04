@@ -18,6 +18,7 @@ class SkillGame extends Component {
     console.log(props)
     this.seed = new Seed(props.location.levelWord.name)
     const level = new Level(this.seed, MAX_LETTERS)
+    console.log(level.letters)
     this.state = { game: new Game(level) }
   }
 
@@ -56,7 +57,6 @@ class SkillGame extends Component {
     }
 
     countdown()
-
     game.letters.forEach(letter => game.balls.push(new Ball(750, 15, letter, canvas)))
     var ball = game.balls[0]
 
