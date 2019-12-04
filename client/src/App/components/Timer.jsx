@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Timer(props) {
+export default function Timer(props) {
 
   return (
     <div>

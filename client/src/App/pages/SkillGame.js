@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { DEFAULT_TIMER, CANVAS_WIDTH, CANVAS_HEIGHT } from '../../model/config'
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import { DEFAULT_TIMER } from '../../model/config'
+import '../../style/skillgame.css'
 import Letter from '../../model/letter'
 import Ball from '../../model/ball'
 import Hole from '../../model/hole'
 import Level from '../../model/level'
 import Game from '../../model/SkillGame'
+
 
 
 class SkillGame extends Component {
@@ -41,7 +43,7 @@ class SkillGame extends Component {
     }
 
     countdown()
-    game.letters.forEach(letter => game.balls.push(new Ball(250, 750, 15, letter, canvas)))
+    game.letters.forEach(letter => game.balls.push(new Ball(250, 650, 15, letter, canvas)))
     var ball = game.balls[0]
     interval = setInterval(draw, 10)
 
@@ -179,23 +181,18 @@ class SkillGame extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <div id="skillapp">
+      <div className='container is-centered' id="skillapp">
+        <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
+        <canvas id="canvas" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}></canvas>
+        <canvas id="canvas2" width="50" height={CANVAS_HEIGHT}></canvas>
 
-          <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
-
-          <center>
-
-            <canvas id="canvas" width="500" height="900"></canvas>
-            <canvas id="canvas2" width="50" height="900"></canvas>
-          </center>
-        </div>
         <Link to={'./smartgame'}>
-          <button variant="raised" id="navnext">
-            NEXT
+          <button className='button is-primary is-inverted is-outline' id="navnext">
+            next
         </button>
         </Link>
       </div>
+
     );
   }
 }
