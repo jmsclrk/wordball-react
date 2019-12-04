@@ -6,8 +6,7 @@ import Layout from '../components/Layout'
 export default function Home() {
 
   function getWord() {
-    let index = 0 //TODO remove magic number
-    return levelList[index]
+    return levelList[Math.floor(Math.random()*levelList.length)];
   }
 
   return (
@@ -18,7 +17,7 @@ export default function Home() {
             pathname: './skillgame',
             levelWord: { name: getWord() }
           }}>
-            <button id='playbutton' className='button is-rounded is-primary is-inverted is-outlined'>Play Now</button>
+            <button id='playbutton' className='button is-rounded is-primary is-inverted is-outlined'>Random Level</button>
           </Link>
 
         </p>

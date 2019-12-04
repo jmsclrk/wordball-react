@@ -43,6 +43,7 @@ export default function ScoreBoard(props) {
 
   return (
     <Layout >
+    <center>
       <div className='level-item has-text-centered'>
         <div className='table-container is-centered'>
           <h3 style={titleStyle} className='subtitle is-medium is-white'>{getTitle()}</h3>
@@ -62,6 +63,7 @@ export default function ScoreBoard(props) {
           </table>
         </div>
       </div>
+      </center>
     </Layout>
   )
 }
