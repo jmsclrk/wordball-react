@@ -37,7 +37,8 @@ export default class Level {
     return lettersArray
   }
 
-  getRandomLetterCodes (seedNumber) {
+  getRandomLetterCodes (seed) {
+    let seedNumber = seed.value
     let i
     const randomNumbers = []
     for (i = 0; i < this.totalLetters; i++) {
