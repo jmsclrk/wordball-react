@@ -18,7 +18,6 @@ class SkillGame extends Component {
     console.log(props)
     this.seed = new Seed(props.location.levelWord.name)
     const level = new Level(this.seed, MAX_LETTERS)
-    console.log(level.letters)
     this.state = { game: new Game(level) }
   }
 
@@ -57,6 +56,7 @@ class SkillGame extends Component {
     }
 
     countdown()
+
     game.letters.forEach(letter => game.balls.push(new Ball(750, 15, letter, canvas)))
     var ball = game.balls[0]
 
@@ -198,7 +198,7 @@ class SkillGame extends Component {
   render() {
     return (
       <div className='container is-centered' id="skillapp">
-        <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
+        <span className="details" align="center" ><div id="timer"></div></span> <span className="details"><div id="score"></div></span>
         <canvas id="canvas" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}></canvas>
         <canvas id="canvas2" width="50" height={CANVAS_HEIGHT}></canvas>
 

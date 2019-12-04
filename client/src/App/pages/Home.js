@@ -33,6 +33,6 @@ export default function Home() {
           </Link>
         </p>
       </div>
-      </Layout>
+    </Layout>
   )
 }
