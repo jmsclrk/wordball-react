@@ -2,9 +2,8 @@ import React from 'react'
 import LevelRow from './LevelRow'
 
 
-export default function LevelTable () {
-  
-  
+export default function LevelTable() {
+
   return (
     <table>
       <tr>
@@ -12,10 +11,10 @@ export default function LevelTable () {
         <th>Your Score</th>
         <th>High Score</th>
       </tr>
-      <LevelRow levelId='1' score='100' highScore='110'/>
-      <LevelRow levelId='2' score='100' highScore='110'/>
-      <LevelRow levelId='3' score='100' highScore='110'/>
-      <LevelRow levelId='4' score='100' highScore='110'/>
+      <LevelRow levelId='1' score='100' highScore='110' />
+      <LevelRow levelId='2' score='100' highScore='110' />
+      <LevelRow levelId='3' score='100' highScore='110' />
+      <LevelRow levelId='4' score='100' highScore='110' />
     </table>
   )
 }

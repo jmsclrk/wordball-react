@@ -1,0 +1,7 @@
+
+canvas {
+  color: #212121;
+  background-image: url("../assets/background.png");
+  background-size: cover;
+  border:1px solid #673AB7;
+}

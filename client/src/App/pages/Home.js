@@ -1,33 +1,28 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import LevelTable from '../components/LevelTable'
+import Layout from '../components/Layout'
 
+export default function Home() {
 
-class Home extends Component {
-  render() {
-    return (
-
-
-    <div className="App">
-    <center>
-      <div id="gamediv">
-      <h1>Welcome To Wordball</h1>
-      {/* Link to List.js */}
-      <Link to={'./skillgame'}>
-        <button variant="raised" class='button'>
-            PLAY
-        </button>
-      </Link>
-      <Link to={'./leaderboard'}>
-        <button variant="raised" class='button'>
-            LEADERBOARD
-        </button>
-      </Link>
-      <LevelTable/>
+  return (
+    <Layout>
+      <div className='buttons is-centered'>
+        <p className="control">
+          <Link to={'./skillgame'}>
+            <button className='button is-rounded is-primary is-inverted is-outlined'>Play Now</button>
+          </Link>
+        </p>
+        <p className="control">
+          <Link to={'./levels'}>
+            <button className='button is-rounded is-primary is-outlined is-inverted'>See Levels</button>
+          </Link>
+        </p>
+        <p className="control">
+          <Link to={'./scoreboard'}>
+            <button className='button is-rounded is-primary is-outlined is-inverted'>Scoreboard</button>
+          </Link>
+        </p>
       </div>
-      </center>
-    </div>
-    );
-  }
+    </Layout >
+  )
 }
-export default Home;

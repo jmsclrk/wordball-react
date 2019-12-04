@@ -1,5 +1,7 @@
-export const MAX_LETTERS = 20
-export const DEFAULT_TIMER = 60
+export const MAX_LETTERS = 30
+export const DEFAULT_TIMER = 10
+export const CANVAS_WIDTH = 400
+export const CANVAS_HEIGHT = 700
 
 export const letterGroups = {
   EAIONRTLSU: 1,

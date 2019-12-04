@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Layout from '../components/Layout'
 import $ from 'jquery';
 
-class Scores extends Component {
+export default class Scores extends Component {
 
   componentDidMount() {
     const smartscore = Number($("#smartscore").attr('value'))
@@ -17,55 +18,39 @@ class Scores extends Component {
 
   render() {
     return (
-    <div className="App">
-
-    <center>
-
-
-
-    <div id='gamediv'>
-      <div id="gameover">
-
-      <Link to={'./'}>
-        <button class='button' variant="raised">
-          NEXT LEVEL
-        </button>
-      </Link>
-
-      <table>
-        <tr>
-        <td colspan="3"> <h2>Final Scores</h2> </td>
-        </tr>
-
-        <tr>
-        <th><h2>Smart Score</h2></th>
-        <th><h2>Skil Score</h2></th>
-        <th><h2>Total</h2></th>
-
-        </tr>
-        <tr>
-        <th><h3><span id="smartpoints"></span></h3></th>
-        <th><h3><span id="skillpoints"></span></h3></th>
-        <th><h3><span id="total"></span></h3></th>
-        </tr>
-      </table>
-    <form>
-
-
-    <input class='textfield' type="text" name="name" />
-    <input type="submit" class='button' value="Save High Score!" />
-    </form>
-
-    </div>
-
-
-      </div>
-
-  </center>
-
-    </div>
+      <Layout className='section'>
+        <div className="container is-centered">
+          <div className='container is-centered' id="gameover">
+            <Link to={'./'}>
+              <button className='button is-primary is-outline is-inverted' >
+                Next Level
+            </button>
+            </Link>
+            <h2>Final Scores</h2>
+            <table className='table is-centered'>
+              <tr>
+                <th>Smart Score</th>
+                <th>Skil Score</th>
+                <th>Total</th>
+              </tr>
+              <tr>
+                <td><span id="smartpoints"></span></td>
+                <td><span id="skillpoints"></span></td>
+                <td><span id="total"></span></td>
+              </tr>
+            </table>
+            <br />
+            <div className="is-centered field has-addons">
+              <div className="control">
+                <input className="input" type="text" placeholder="Save your name on the high score table"></input>
+              </div>
+              <div className="control">
+                <a className="button is-primary is-inverted is-outline">Confirm</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
     )
   }
 }
-
-export default Scores;
