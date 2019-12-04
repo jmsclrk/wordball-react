@@ -12,7 +12,7 @@ class SmartGame extends Component {
     super(props);
     this.state = {
       smartGame: {
-        playerLetters: $("#bankedletters").attr('value').split(''),
+        playerLetters: 'FAIRDPOSX'.split(''),//$("#bankedletters").attr('value').split(''),
         score: 0,
         possibleWords: [],
         validWords: []
@@ -36,7 +36,7 @@ class SmartGame extends Component {
       $('#score').text('Current Score: ' + game.score)
       if (timeLeft === 0) {
         clearInterval(timeInterval)
-        gameOver()
+        // gameOver()
       } else {
         $('#timer').text(timeLeft + ' seconds remaining')
         timeLeft--
@@ -64,6 +64,9 @@ class SmartGame extends Component {
       wordInput += event.currentTarget.innerHTML
       event.currentTarget.className = "letterbutton-off"
       $('#typearea').text(wordInput)
+    })
+
+    $('#verifybutton').click(() => {
       verifyWord()
       $('#validwordslist').html(game.validWords.join(' - '))
     })
@@ -119,9 +122,15 @@ class SmartGame extends Component {
               <div id="typebox">
                 <b><span id="typearea"></span></b><span className="blinking-cursor">_</span>
               </div>
+              <br/>
+              <br/>
               <div id="letterkeys">
               </div>
-              <div id="clearword">
+              <br/>
+              <br/>
+              <div id="submitbuttons">
+                <button id="verifybutton">SUBMIT</button>
+                <br/>
                 <button id="clearbutton">CLEAR</button>
               </div>
             </div>
