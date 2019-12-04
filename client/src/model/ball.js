@@ -4,6 +4,8 @@ export default class Ball {
     // letter details
     this.letter = letter.character
     this.colour = letter.colour
+
+    this.radius = radius
     this.score = letter.score
     //
 

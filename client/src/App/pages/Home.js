@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 
 export default function Home() {
   return (
-
+    <Layout>
     <div className="App">
     <center>
       <div id="gamediv">
@@ -14,9 +14,11 @@ export default function Home() {
         <button variant="raised" class='button'> PLAY </button>
       </Link>
       <Link to={'./leaderboard'}>
-        <button variant="raised" class='button'>LEADERBOARD</button>
+        <button variant="raised" class='button'> LEADERBOARD </button>
       </Link>
       </div>
-    </Layout>
-  );
+      </center>
+      </div>
+      </Layout>
+  )
 }
