@@ -6,20 +6,7 @@ import Layout from '../components/Layout'
 export default function Home() {
 
   function getWord() {
-    const words = [
-      'dog',
-      'cat',
-      'ball',
-      'toilet',
-      'away',
-      'harder',
-      'malapropism',
-      'funambulist',
-      'verisimilitude',
-      'valetudinarian',
-      'antiestablishmentarianism'
-    ]
-    return words[Math.floor(Math.random()*words.length)];
+    return levelList[Math.floor(Math.random()*levelList.length)];
   }
 
   return (

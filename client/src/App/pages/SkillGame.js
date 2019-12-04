@@ -85,6 +85,9 @@ class SkillGame extends Component {
 
 
     function draw() {
+      ctx.strokeStyle = 'white'
+      ctx.lineWidth = 3
+
       $('#score').text('Current Score: ' + game.score)
       fillBalls()
       ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -116,21 +119,22 @@ class SkillGame extends Component {
         ctx.fill()
         ctx.stroke()
         ctx.fillStyle = 'white'
-        ctx.fillText('x' + item.score, item.xPos - 8, item.yPos)
+        ctx.fillText('x' + item.score, item.xPos - 9, item.yPos+5)
       })
     }
     function drawPath(ctx, colour, x1, y1, x2, y2) {
       ctx.strokeStyle = colour
       ctx.beginPath()
-      ctx.lineWidth = 5
+      ctx.lineWidth = 3
       ctx.moveTo(x1, y1)
       ctx.lineTo(x2, y2)
       ctx.stroke()
-      ctx.strokeStyle = 'black'
-      ctx.lineWidth = 1
+      ctx.lineWidth = 3
     }
 
     function fillBalls() {
+      ctx2.strokeStyle = 'white'
+      ctx2.lineWidth = 3
       const radius = game.balls[0].radius
       ctx2.font = '20px Arial'
       ctx2.clearRect(0, 0, canvas2.width, canvas2.height)
@@ -138,10 +142,8 @@ class SkillGame extends Component {
       game.balls.forEach(function (item) {
         if (item.isClicked === false) {
           ctx2.beginPath()
-          ctx2.fillStyle = item.colour
-          ctx2.lineWidth = 0
+          ctx2.strokeStyle = item.colour
           ctx2.arc(canvas2.width / 2, y, radius, 0, 2 * Math.PI)
-          ctx2.fill()
           ctx2.stroke()
           y -= 40
         }
@@ -154,13 +156,12 @@ class SkillGame extends Component {
       ctx.rect(game.tLeftCorner[0], game.tRightCorner[1], game.tRightCorner[0] - game.tLeftCorner[0], game.bRightCorner[1] - game.tLeftCorner[1])
       ctx.stroke()
       ctx.fillStyle = 'black'
-      ctx.fill()
       ctx.fillStyle = 'white'
       ctx.fillText('Throw in here to make a word!', 115, 830)
       game.word.forEach(function (item) {
         ctx.fillStyle = letter.getColour(item)
         ctx.beginPath()
-        ctx.lineWidth = 1
+        ctx.lineWidth = 3
         ctx.arc(x, game.tRightCorner[1] + 35, radius, 0, 2 * Math.PI)
         ctx.fill()
         ctx.stroke()
@@ -177,12 +178,10 @@ class SkillGame extends Component {
       if (inBounds(y2) && ball.isClicked === false) {
         drawPath(ctx, ball.colour, ball.xPos, ball.yPos, x2, y2)
       }
-      ctx.fillStyle = ball.colour
+      ctx.strokeStyle = ball.colour
       ctx.beginPath()
       ctx.arc(x, y, ball.radius, 0, 2 * Math.PI)
-      ctx.fill()
       ctx.stroke()
-      ctx.fillStyle = 'white'
       ctx.fillText(ball.letter, x + 5, y + 30)
     }
     function checkGameOver() {
