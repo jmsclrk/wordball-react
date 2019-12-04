@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Layout from '../components/Layout'
 
 export default function Home() {
   return (
+
     <div className="App">
     <center>
       <div id="gamediv">
@@ -15,7 +17,6 @@ export default function Home() {
         <button variant="raised" class='button'>LEADERBOARD</button>
       </Link>
       </div>
-      </center>
-    </div>
+    </Layout>
   );
 }

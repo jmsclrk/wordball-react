@@ -1,13 +1,15 @@
 export default class Ball {
+
   constructor (y, radius, letter, canvas) {
     // letter details
     this.letter = letter.character
     this.colour = letter.colour
     this.score = letter.score
     //
-    this.radius = radius
+
     this.xPos = 100 + Math.floor(Math.random() * 300)
     this.yPos = y
+
     this.xVel = 0
     this.yVel = 0
     // cooefficent of resitution
