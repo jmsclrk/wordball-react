@@ -28,12 +28,20 @@ app.get('/api/getLeaderboard', (req, res) => {
     })
 })
 
+
 // app.get('/api/getLevelList', (req, res) => {
 //   console.log('reached levels')
 //   db.collection('levels').find()
 //     .then(levels => res.json(levels))
 //     .catch(err => res.status(400).json('error: ' + err));
 // })
+
+
+// ---------users api--------------
+
+// users api to get and post requests to go here
+
+// ---------heroku deploy settings--------------
 
 
 if (process.env.NODE_ENV === 'production') {
@@ -44,4 +52,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-

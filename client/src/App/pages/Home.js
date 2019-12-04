@@ -34,6 +34,8 @@ export default function Home() {
           </Link>
         </p>
       </div>
-    </Layout>
-  );
+      </center>
+      </div>
+      </Layout>
+  )
 }

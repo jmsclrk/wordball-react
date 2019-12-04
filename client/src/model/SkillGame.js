@@ -75,7 +75,7 @@ export default class Game {
     const y = ball.yPos
     if (x > 100 && x < 400 && y > 800 && y < 850) {
       this.word.push(ball.letter)
-      if (this.word.length === 8) {
+      if (this.word.length === 10) {
         this.forceGameOver()
       }
       ball.done()

@@ -31,7 +31,17 @@ class SkillGame extends Component {
     const timeInterval = setInterval(countdown, 1000)
     let interval
     $("#score").show()
-    let timeLeft = DEFAULT_TIMER
+    let timeLeft
+    var xVal
+    if (process.env.NODE_ENV === 'production') {
+      xVal = null
+      timeLeft = DEFAULT_TIMER
+    } else {
+      xVal = 250
+      timeLeft = 12
+    }
+
+    DEFAULT_TIMER
     function countdown() {
       if (timeLeft === 0) {
         game.forceGameOver()
@@ -43,8 +53,10 @@ class SkillGame extends Component {
     }
 
     countdown()
-    game.letters.forEach(letter => game.balls.push(new Ball(250, 650, 15, letter, canvas)))
+    
+    game.letters.forEach(letter => game.balls.push(new Ball(750, 15, letter, canvas)))
     var ball = game.balls[0]
+    
     interval = setInterval(draw, 10)
 
     let x2
@@ -179,6 +191,7 @@ class SkillGame extends Component {
       }
     }
   }
+
   render() {
     return (
       <div className='container is-centered' id="skillapp">

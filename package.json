@@ -9,7 +9,9 @@
     "server": "node server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
     "react-icons": "^3.8.0"
   },
   "devDependencies": {
+    "cypress": "^3.7.0",
     "concurrently": "^5.0.0",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
