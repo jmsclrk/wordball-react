@@ -18,13 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/api/getLeaderboard', (req, res) => {
   console.log('reached scores')
-  let list = []
   db.collection('scores').find()
     .toArray(function (err, results) {
-      results.forEach((item) => {
-        list.push(`${item.name} ---- skill: ${item.skillscore} - smart: ${item.smartscore}`)
-      })
-      res.json(list);
+      res.json(results);
     })
 })
 

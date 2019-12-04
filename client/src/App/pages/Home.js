@@ -33,6 +33,10 @@ export default function Home() {
           </Link>
         </p>
       </div>
+<<<<<<< HEAD
+      </Layout>
+=======
     </Layout >
+>>>>>>> 4efb0874e45039cdcce366a427de1fad360cb1cb
   )
 }

@@ -42,7 +42,6 @@ export default function ScoreBoard(props) {
   }
 
   return (
-
     <Layout >
       <div className='level-item has-text-centered'>
         <div className='table-container is-centered'>
