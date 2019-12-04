@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DEFAULT_TIMER, CANVAS_WIDTH, CANVAS_HEIGHT } from '../../model/config'
+import { MAX_LETTERS, DEFAULT_TIMER, CANVAS_WIDTH, CANVAS_HEIGHT } from '../../model/config'
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import '../../style/skillgame.css'
@@ -8,13 +8,16 @@ import Ball from '../../model/ball'
 import Hole from '../../model/hole'
 import Level from '../../model/level'
 import Game from '../../model/SkillGame'
+import Seed from '../../model/seeds'
 
 
 
 class SkillGame extends Component {
   constructor(props) {
     super(props)
-    const level = new Level(743284, 20)
+    console.log(props)
+    this.seed = new Seed(props.location.levelWord.name)
+    const level = new Level(this.seed, MAX_LETTERS)
     this.state = { game: new Game(level) }
   }
 
@@ -53,10 +56,10 @@ class SkillGame extends Component {
     }
 
     countdown()
-    
+
     game.letters.forEach(letter => game.balls.push(new Ball(750, 15, letter, canvas)))
     var ball = game.balls[0]
-    
+
     interval = setInterval(draw, 10)
 
     let x2

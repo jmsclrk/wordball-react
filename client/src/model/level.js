@@ -4,7 +4,7 @@ import Letter from './letter'
 
 export default class Level {
   constructor (seed, totalLetters) {
-    this.seed = 505
+    this.seed = seed
     this.totalLetters = totalLetters
     this.letters = this.generateLetterArray()
     this.holes = this.generateHolesArray(defaultHoleAttributes)
