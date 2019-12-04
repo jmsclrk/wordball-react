@@ -44,9 +44,9 @@ export default function HighScore(props) {
     <tr key={playerName()} className='highscore' style={scoreStyle}>
       {/* <td>{playerPicture()}</td> */}
       <td>{playerName()}</td>
-      <td>{smartScore()}</td>
-      <td>{skillScore()}</td>
-      <td>{totalScore()}</td>
+      <td className='has-text-right'>{smartScore()}</td>
+      <td className='has-text-right'>{skillScore()}</td>
+      <td className='has-text-right'>{totalScore()}</td>
     </tr>
   )
 }

@@ -44,22 +44,24 @@ export default function ScoreBoard(props) {
   return (
 
     <Layout >
-      <div className='table-container is-centered'>
-        <h3 style={titleStyle} className='subtitle is-medium is-white'>{getTitle()}</h3>
-        <table className='table is-outline is-striped is-hoverable is-centered is-fullwidth'>
-          <thead>
-            <tr >
-              {/* <th>Avatar</th> */}
-              <th>Player Name</th>
-              <th>Balls Score</th>
-              <th>Words Score</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {buildHTML(getScores)}
-          </tbody>
-        </table>
+      <div className='level-item has-text-centered'>
+        <div className='table-container is-centered'>
+          <h3 style={titleStyle} className='subtitle is-medium is-white'>{getTitle()}</h3>
+          <table className='table is-outline is-striped is-hoverable is-centered is-fullwidth'>
+            <thead>
+              <tr >
+                {/* <th>Avatar</th> */}
+                <th>Player Name</th>
+                <th className='has-text-right'>Balls Score</th>
+                <th className='has-text-right'>Words Score</th>
+                <th className='has-text-right'>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {buildHTML(getScores)}
+            </tbody>
+          </table>
+        </div>
       </div>
     </Layout>
   )
