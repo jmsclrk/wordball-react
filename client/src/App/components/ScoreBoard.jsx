@@ -15,7 +15,7 @@ export default function ScoreBoard(props) {
     return fetch('/api/getLeaderboard')
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson)
+        console.log('scores fetched: ', responseJson)
         setScores(responseJson)
       })
       .catch((error) => {
@@ -31,7 +31,7 @@ export default function ScoreBoard(props) {
   function buildHTML(highScores) {
     if (Array.isArray(highScores)) {
       return highScores.map((highScore, index) => {
-        return <HighScore key={index} className='tbody' playerName={highScore.playerName} skillScore={highScore.skillScore} smartScore={highScore.smartScore} />
+        return <HighScore key={index} className='tbody' playerName={highScore.name} skillScore={highScore.skillscore} smartScore={highScore.smartscore} />
       })
     }
   }
