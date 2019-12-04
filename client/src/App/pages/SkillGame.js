@@ -51,7 +51,9 @@ class SkillGame extends Component {
     }
 
     countdown()
-    game.letters.forEach(letter => game.balls.push(new Ball(15, letter, canvas, xVal)))
+
+    game.letters.forEach(letter => game.balls.push(new Ball(750, 15, letter, canvas)))
+
     var ball = game.balls[0]
     interval = setInterval(draw, 10)
 
