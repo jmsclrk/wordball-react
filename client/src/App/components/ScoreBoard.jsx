@@ -5,22 +5,24 @@ import Layout from './Layout'
 export default function ScoreBoard(props) {
 
   const [getScores, setScores] = useState(null)
+  var list = []
 
-  function getList() {
+
+
+  function getList () {
+    console.log('requested')
     fetch('/api/getLeaderboard')
-      .then(res => res.json())
-      .then(list => setScores(list))
+    .then(res => list = res.json())
+    .then(list => console.log(list))
+    .then(setScores(list))
+    .then(console.log(getScores))
   }
-
-  useEffect(() => {
-    getList()
-  }, [])
-
 
   function buildHTML(highScores) {
     if (Array.isArray(highScores)) {
       return highScores.map((highScore, index) => {
-        return <HighScore key={index} className='tbody' playerName={highScore.playerName} skillScore={highScore.skillScore} smartScore={highScore.smartScore} />
+        console.log(highScore)
+        return <HighScore key={index} className='tbody' playerName={highScore.name} skillScore={highScore.skillscore} smartScore={highScore.smartscore} />
       })
     }
   }
@@ -45,7 +47,7 @@ export default function ScoreBoard(props) {
               <th>Words Score</th>
               <th>Total</th>
             </tr>
-            {buildHTML(getScores)}
+            {getList().then(buildHTML(getScores))}
           </tbody>
         </table>
       </div>
