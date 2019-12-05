@@ -9,8 +9,8 @@ import Hole from '../../model/hole'
 import Level from '../../model/level'
 import Game from '../../model/SkillGame'
 import Seed from '../../model/seeds'
-import Layout from '../components/Layout'
-
+import LayoutGame from '../components/LayoutGame'
+import GameOverlay from '../components/GameOverlay'
 
 
 class SkillGame extends Component {
@@ -28,6 +28,7 @@ class SkillGame extends Component {
     $("#smartscore").hide()
     const letter = new Letter()
     const game = this.state.game
+    const radius = 15
     const canvas = document.getElementById('canvas')
     const ctx = canvas.getContext('2d')
     const canvas2 = document.getElementById('canvas2')
@@ -42,7 +43,7 @@ class SkillGame extends Component {
       timeLeft = DEFAULT_TIMER
     } else {
       xVal = 250
-      timeLeft = 12
+      timeLeft = 45
     }
 
     function countdown() {
@@ -50,14 +51,14 @@ class SkillGame extends Component {
         game.forceGameOver()
         clearInterval(timeInterval)
       } else {
-        $('#timer').text(timeLeft + ' seconds remaining')
+        $('#timer').text(timeLeft + ' seconds remaining | ')
         timeLeft--
       }
     }
 
     countdown()
 
-    game.letters.forEach(letter => game.balls.push(new Ball(750, 15, letter, canvas)))
+    game.letters.forEach(letter => game.balls.push(new Ball(750, radius, letter, canvas)))
     var ball = game.balls[0]
 
     interval = setInterval(draw, 10)
@@ -129,11 +130,11 @@ class SkillGame extends Component {
     function drawPath(ctx, colour, x1, y1, x2, y2) {
       ctx.strokeStyle = colour
       ctx.beginPath()
-      ctx.lineWidth = 3
+      ctx.lineWidth = 2
       ctx.moveTo(x1, y1)
       ctx.lineTo(x2, y2)
       ctx.stroke()
-      ctx.lineWidth = 3
+      ctx.lineWidth = 2
     }
 
     function fillBalls() {
@@ -185,7 +186,7 @@ class SkillGame extends Component {
       ctx.beginPath()
       ctx.arc(x, y, ball.radius, 0, 2 * Math.PI)
       ctx.stroke()
-      ctx.fillText(ball.letter, x + 5, y + 30)
+      ctx.fillText(ball.letter, x + -7, y -1 + ball.radius/2)
     }
     function checkGameOver() {
       if (game.isGameOver() === true) {
@@ -200,9 +201,9 @@ class SkillGame extends Component {
 
   render() {
     return (
-      <Layout>
+      <LayoutGame>
       <div className='container is-centered' id="skillapp">
-        <span className="details" align="center" ><div id="timer"></div></span> <span className="details"><div id="score"></div></span>
+        <GameOverlay top="35px" right='40px'/>
         <canvas id="canvas" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}></canvas>
         <canvas id="canvas2" width="50" height={CANVAS_HEIGHT}></canvas>
 
@@ -212,7 +213,7 @@ class SkillGame extends Component {
         </button>
         </Link>
       </div>
-      </Layout>
+      </LayoutGame>
 
     );
   }

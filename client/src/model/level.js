@@ -24,7 +24,7 @@ export default class Level {
   }
 
   generateLetterArray () {
-    const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    const ALPHABET = 'AAABCDDEEEFGHIJKLLMNOOPQRRSSTTUUVWXYYZ'
     const seedNumber = this.seed
     let lettersArray = this.getRandomLetterCodes(seedNumber).map((n) => {
       return ALPHABET[n]
@@ -45,7 +45,7 @@ export default class Level {
       // DO NOT REFACTOR - Must be done in sequence within same function
       seedNumber = (seedNumber * 9301 + 49297) % 233280
       var rnd = seedNumber / 233280
-      randomNumbers.push(Math.floor(0 + rnd * (26 - 0)))
+      randomNumbers.push(Math.floor(0 + rnd * (31 - 0)))
     }
     return randomNumbers
   }

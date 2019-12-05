@@ -65,7 +65,7 @@ button:focus {
   font-size: 45px;
   border-radius: 50%;
   background-color: transparent;
-  border: 3px solid #c1dfe8;
+  border: 3px solid #03fca1;
   color: white
 }
 
@@ -75,7 +75,7 @@ button:focus {
   font-size: 45px;
   border-radius: 50%;
   background-color: transparent;
-  border: 3px solid #79c4db;
+  border: 3px solid #45b8ff;
   color: white
 }
 
@@ -85,7 +85,7 @@ button:focus {
   font-size: 45px;
   border-radius: 50%;
   background-color: transparent;
-  border: 3px solid #32b5de;
+  border: 3px solid #ff8624;
   color: white
 }
 
@@ -95,7 +95,7 @@ button:focus {
   font-size: 45px;
   border-radius: 50%;
   background-color: transparent;
-  border: 3px solid #00ade8;
+  border: 3px solid #ff3333;
   color: white
 }
 
@@ -105,7 +105,7 @@ button:focus {
   font-size: 45px;
   border-radius: 50%;
   background-color: transparent;
-  border: 3px solid #0095d1;
+  border: 3px solid #000000;
   color: white
 }
 

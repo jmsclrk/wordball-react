@@ -14,11 +14,11 @@ export const letterGroups = {
 }
 
 export const LetterColours = {
-  EAIONRTLSU: '#c1dfe8',
-  DGBCMP: '#79c4db',
-  FHVWY: '#32b5de',
-  KJX: '#00ade8',
-  QZ: '#0095d1'
+  EAIONRTLSU: '#03fca1',
+  DGBCMP: '#45b8ff',
+  FHVWY: '#ff8624',
+  KJX: '#ff3333',
+  QZ: '#000000'
 }
 
 export const levelList = [
