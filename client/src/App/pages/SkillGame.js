@@ -9,6 +9,7 @@ import Hole from '../../model/hole'
 import Level from '../../model/level'
 import Game from '../../model/SkillGame'
 import Seed from '../../model/seeds'
+import Layout from '../components/Layout'
 
 
 
@@ -72,11 +73,15 @@ class SkillGame extends Component {
       return true
     }
 
-    $('#canvas').mousedown(function (canvas) {
-      const offset = $(this).offset()
+
+
       $('#canvas').bind('mousemove', function (e) {
+        const offset = $(this).offset()
         x2 = e.pageX - offset.left
         y2 = e.pageY - offset.top
+        $('#canvas').mousedown(function (canvas) {
+          x2 = e.pageX - offset.left
+          y2 = e.pageY - offset.top
         $('#canvas').mouseup(function (canvas) {
           if (inBounds(y2)) { ball.giveVelocity(ball.xPos, ball.yPos, x2, y2) }
         })
@@ -91,7 +96,7 @@ class SkillGame extends Component {
       $('#score').text('Current Score: ' + game.score)
       fillBalls()
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      ctx.font = '20px Arial'
+      ctx.font = "bold 15pt Arial";
       game.checkBallDone(ball)
       game.isBallinScoreHole(ball)
       game.isBallinWordHole(ball)
@@ -104,8 +109,8 @@ class SkillGame extends Component {
       } else {
         drawBall(ball)
       }
-      ctx.fillStyle = 'white'
       ctx.fillText('Foul Line!', 200, 620)
+      ctx.strokeStyle= 'white'
       ctx.beginPath();
       ctx.moveTo(0, 600);
       ctx.lineTo(500, 600);
@@ -136,7 +141,6 @@ class SkillGame extends Component {
       ctx2.strokeStyle = 'white'
       ctx2.lineWidth = 3
       const radius = game.balls[0].radius
-      ctx2.font = '20px Arial'
       ctx2.clearRect(0, 0, canvas2.width, canvas2.height)
       var y = 920
       game.balls.forEach(function (item) {
@@ -153,11 +157,11 @@ class SkillGame extends Component {
       const radius = game.balls[0].radius
       var x = game.tLeftCorner[0] + radius
       ctx.beginPath()
+      ctx.lineWidth = 3
       ctx.rect(game.tLeftCorner[0], game.tRightCorner[1], game.tRightCorner[0] - game.tLeftCorner[0], game.bRightCorner[1] - game.tLeftCorner[1])
       ctx.stroke()
       ctx.fillStyle = 'black'
-      ctx.fillStyle = 'white'
-      ctx.fillText('Throw in here to make a word!', 115, 830)
+      ctx.fill()
       game.word.forEach(function (item) {
         ctx.fillStyle = letter.getColour(item)
         ctx.beginPath()
@@ -196,6 +200,7 @@ class SkillGame extends Component {
 
   render() {
     return (
+      <Layout>
       <div className='container is-centered' id="skillapp">
         <span className="details" align="center" ><div id="timer"></div></span> <span className="details"><div id="score"></div></span>
         <canvas id="canvas" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}></canvas>
@@ -207,6 +212,7 @@ class SkillGame extends Component {
         </button>
         </Link>
       </div>
+      </Layout>
 
     );
   }

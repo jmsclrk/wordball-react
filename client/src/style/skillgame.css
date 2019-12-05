@@ -1,8 +1,7 @@
 
 canvas {
   background-size: cover;
-  border:2px solid #ffffff;
+  border:5px solid #ffffff;
   margin: 3px;
   padding: 3px;
-  background: #000000;
 }
