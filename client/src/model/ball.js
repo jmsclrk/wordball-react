@@ -7,7 +7,6 @@ export default class Ball {
 
     this.radius = radius
     this.score = letter.score
-    //
 
     this.xPos = 100 + Math.floor(Math.random() * 300)
     this.yPos = y
