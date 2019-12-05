@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 export default function HighScore(props) {
 
@@ -36,7 +38,7 @@ export default function HighScore(props) {
   }
 
   function totalScore() {
-    return (smartScore() + skillScore())
+    return replaceMissing(props.total, 0)
   }
 
 

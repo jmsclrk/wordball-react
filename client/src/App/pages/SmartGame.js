@@ -5,6 +5,8 @@ import Letter from '../../model/letter'
 import { DEFAULT_TIMER } from '../../model/config'
 import { withRouter } from 'react-router-dom';
 import '../../style/smartgame.css'
+import Layout from '../components/Layout'
+
 
 
 class SmartGame extends Component {
@@ -12,7 +14,7 @@ class SmartGame extends Component {
     super(props);
     this.state = {
       smartGame: {
-        playerLetters: 'FAIRDPOSX'.split(''),//$("#bankedletters").attr('value').split(''),
+        playerLetters: $("#bankedletters").attr('value').split(''),
         score: 0,
         possibleWords: [],
         validWords: []
@@ -36,7 +38,7 @@ class SmartGame extends Component {
       $('#score').text('Current Score: ' + game.score)
       if (timeLeft === 0) {
         clearInterval(timeInterval)
-        // gameOver()
+        gameOver()
       } else {
         $('#timer').text(timeLeft + ' seconds remaining')
         timeLeft--
@@ -110,6 +112,7 @@ class SmartGame extends Component {
 
   render() {
     return (
+      <Layout>
       <div className="App">
         <div id="smartapp">
           <span class="details" align="center" ><div id="timer"></div></span> <span class="details"><div id="score"></div></span>
@@ -142,6 +145,7 @@ class SmartGame extends Component {
         </button>
         </Link>
       </div>
+      </Layout>
     );
   }
 }

@@ -45,7 +45,6 @@ class SkillGame extends Component {
       timeLeft = 12
     }
 
-    DEFAULT_TIMER
     function countdown() {
       if (timeLeft === 0) {
         game.forceGameOver()
@@ -190,6 +189,7 @@ class SkillGame extends Component {
     }
     function checkGameOver() {
       if (game.isGameOver() === true) {
+        timeLeft = 0
         clearInterval(interval)
         $("#bankedletters").attr('value', game.word.join(''))
         $("#skillscore").attr('value', game.score)

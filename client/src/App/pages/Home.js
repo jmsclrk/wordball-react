@@ -9,6 +9,12 @@ export default function Home() {
     return levelList[Math.floor(Math.random()*levelList.length)];
   }
 
+  // <p className="control">
+  //   <Link to={'./levels'}>
+  //     <button className='button is-rounded is-primary is-outlined is-inverted'>See Levels</button>
+  //   </Link>
+  // </p>
+
   return (
     <Layout>
       <div className='buttons is-centered'>
@@ -19,25 +25,14 @@ export default function Home() {
           }}>
             <button id='playbutton' className='button is-rounded is-primary is-inverted is-outlined'>Random Level</button>
           </Link>
+        </p>
 
-        </p>
-        <p className="control">
-          <Link to={'./levels'}>
-            <button className='button is-rounded is-primary is-outlined is-inverted'>See Levels</button>
-          </Link>
-        </p>
         <p className="control">
           <Link to={'./scoreboard'}>
             <button className='button is-rounded is-primary is-outlined is-inverted'>Scoreboard</button>
           </Link>
         </p>
-        <p className="control">
-          <Link to={'./smartgame'}>
-            <button className='button is-rounded is-primary is-outlined is-inverted'>SmartGame Backdoor</button>
-          </Link>
-        </p>
-
-
+      
 
       </div>
     </Layout>

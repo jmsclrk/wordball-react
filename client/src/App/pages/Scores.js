@@ -23,6 +23,7 @@ export default class Scores extends Component {
         total: smartscore + skillscore
       }
       $.post('/api/getLeaderboard', data )
+      $('#homebutton').trigger('click')
     })
   }
 
@@ -32,42 +33,44 @@ export default class Scores extends Component {
     return (
       <Layout className='section'>
       <center>
+      <Link to={'./'}>
+        <button id='homebutton' className='button is-rounded is-primary is-inverted is-outlined' >
+          Home
+        </button>
+        <br />
+          <br />
+      </Link>
+      <table className='table is-centered'>
+      <thead>
+        <tr>
+          <th>Smart Score</th>
+          <th>Skill Score</th>
+          <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><span id="smartpoints"></span></td>
+          <td><span id="skillpoints"></span></td>
+          <td><span id="total"></span></td>
+        </tr>
+        </tbody>
+      </table>
       <div className="container is-centered">
       <div>
-        <input id="playername" className="input" type="text" placeholder="Save your name on the high score table"></input>
+        <input style={{width: '300px'}} id="playername" className="input" type="text" placeholder="Save your name on the high score table"></input>
       </div>
       <br />
-      <div className='button is-primary is-outline is-inverted'>
-        <button id="scoresubmit" className="button is-primary is-inverted is-outline">Confirm</button>
+      <div >
+        <button id="scoresubmit" className='button is-rounded is-primary is-inverted is-outlined'>Confirm</button>
       </div>
       </div>
-              <br />
-                      <br />
+      <br />
+      <br />
         <div className="container is-centered">
           <div className='container is-centered' id="gameover">
-            <Link to={'./'}>
-              <button className='button is-primary is-outline is-inverted' >
-                Next Level
-            </button>
-              <br />
-                <br />
-            </Link>
-            <table className='table is-centered'>
-            <thead>
-              <tr>
-                <th>Smart Score</th>
-                <th>Skil Score</th>
-                <th>Total</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td><span id="smartpoints"></span></td>
-                <td><span id="skillpoints"></span></td>
-                <td><span id="total"></span></td>
-              </tr>
-              </tbody>
-            </table>
+
+
             <br />
             <center>
             <div>
