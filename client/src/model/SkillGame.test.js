@@ -72,13 +72,13 @@ it('tests if a ball is in wordhole', () => {
   expect(game.counter).toBe(1)
 });
 
-// it('tests if a ball is in scorehole', () => {
-//   const game = new SkillGame(level)
-//   const ball = new Ball()
-//   game.holeArray = [{xPos:100,yPos:250,radius:10}]
-//   ball.yPos=100
-//   ball.xPos=250
-//   ball.radius=10
-//   game.isBallinScoreHole(ball)
-//   expect(game.counter).toBe(1)
-// });
+it('tests if a ball is in scorehole', () => {
+  const game = new SkillGame(level)
+  const ball = new Ball()
+  game.holeArray = [{xPos:100,yPos:250,radius:10}]
+  ball.yPos=100
+  ball.xPos=250
+  ball.radius=10
+  game.isBallinScoreHole(ball)
+  expect(game.counter).toBe(0)
+});

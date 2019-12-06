@@ -15,7 +15,7 @@ export default function LinkToLevel(props) {
     if (props.word) {
       return new Seed(props.word)
     } else {
-      return getWord()
+      return new Seed(getWord())
     }
   }
 

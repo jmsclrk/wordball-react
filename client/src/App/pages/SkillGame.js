@@ -165,11 +165,10 @@ class SkillGame extends Component {
       ctx.fillStyle = 'black'
       ctx.fill()
       game.word.forEach(function (item) {
-        ctx.fillStyle = letter.getColour(item)
+        ctx.strokeStyle = letter.getColour(item)
         ctx.beginPath()
         ctx.lineWidth = 3
         ctx.arc(x, game.tRightCorner[1] + 35, radius, 0, 2 * Math.PI)
-        ctx.fill()
         ctx.stroke()
         ctx.fillStyle = 'white'
         ctx.fillText(item, x - 10, game.tRightCorner[1] + 41)
