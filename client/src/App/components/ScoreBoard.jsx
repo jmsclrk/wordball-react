@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import HighScore from './HighScore'
 import Layout from './Layout'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 
 export default function ScoreBoard(props) {
 
-  const titleStyle = {
-    // fontFamily: 'Faster One',
-    color: 'white'
+  const tableStyle = {
+    color: 'white',
+    backgroundColor: 'rgba(0, 0, 0, 0)'
   }
 
   const [getScores, setScores] = useState(null)
@@ -44,32 +44,18 @@ export default function ScoreBoard(props) {
   }
 
   return (
-    <Layout >
+
     <center>
-
-    <Link to={'./'}>
-      <button className='button is-rounded is-primary is-inverted is-outlined' >
-        Home
-      </button>
-      <br />
-        <br />
-    </Link>
-
-
       <div className='level-item has-text-centered'>
-
-
-
         <div className='table-container is-centered'>
-          <h3 style={titleStyle} className='subtitle is-medium is-white'>{getTitle()}</h3>
-          <table className='table is-outline is-striped is-hoverable is-centered is-fullwidth'>
-            <thead>
+          <table style={tableStyle} className='table is-outline is-striped is-hoverable is-centered is-fullwidth'>
+            <thead >
               <tr >
                 {/* <th>Avatar</th> */}
-                <th>Player Name</th>
-                <th className='has-text-right'>Balls Score</th>
-                <th className='has-text-right'>Words Score</th>
-                <th className='has-text-right'>Total</th>
+                <th style={tableStyle} >Player Name</th>
+                <th style={tableStyle} className='has-text-right'>Balls Score</th>
+                <th style={tableStyle} className='has-text-right'>Words Score</th>
+                <th style={tableStyle} className='has-text-right'>Total</th>
               </tr>
             </thead>
             <tbody>
@@ -78,7 +64,7 @@ export default function ScoreBoard(props) {
           </table>
         </div>
       </div>
-      </center>
-    </Layout>
+    </center>
+
   )
 }

@@ -1,29 +1,24 @@
 import React from 'react'
 import { levelList } from '../../model/config'
-import { Link } from 'react-router-dom';
+import LinkToLevel from './LinkToLevel';
 
 export default function LevelRow(props) {
 
   function getWord() {
-    let index = Number(props.levelId) - 1
-    return levelList[index]
-  }
+    if (props.word) {
+      return props.word
+    } else if (props.levelId) {
+      let index = Number(props.levelId) - 1
+      return levelList[index]
+    } else {
+      return 'dog'
+    }
 
-  function startLevel() {
-    return (
-      <Link to={{
-        pathname: './skillgame',
-        levelWord: { name: getWord() }
-      }}>
-        {props.levelId}
-      </Link>
-    )
   }
-
 
   return (
     <tr>
-      <td>{startLevel()}</td>
+      <td><LinkToLevel word={getWord()}>{props.levelId}</LinkToLevel> </td>
       {/* <td className='has-text-right'>{props.score}</td> */}
       <td className='has-text-right'>{props.highScore}</td>
     </tr>

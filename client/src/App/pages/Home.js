@@ -2,11 +2,12 @@ import React from 'react';
 import { levelList } from '../../model/config'
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout'
+import LinkToLevel from '../components/LinkToLevel';
 
 export default function Home() {
 
   function getWord() {
-    return levelList[Math.floor(Math.random()*levelList.length)];
+    return levelList[Math.floor(Math.random() * levelList.length)];
   }
 
   // <p className="control">
@@ -19,21 +20,15 @@ export default function Home() {
     <Layout>
       <div className='buttons is-centered'>
         <p className="control">
-          <Link to={{
-            pathname: './skillgame',
-            levelWord: { name: getWord() }
-          }}>
-            <button id='playbutton' className='button is-rounded is-primary is-inverted is-outlined'>Random Level</button>
-          </Link>
+          <LinkToLevel word={getWord()} >
+            <button className='button is-rounded is-primary is-outlined is-inverted'>Play Now</button>
+          </LinkToLevel>
         </p>
-
         <p className="control">
           <Link to={'./scoreboard'}>
             <button className='button is-rounded is-primary is-outlined is-inverted'>Scoreboard</button>
           </Link>
         </p>
-      
-
       </div>
     </Layout>
   )

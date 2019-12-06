@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import SkillGame from './pages/SkillGame';
 import SmartGame from './pages/SmartGame';
 import Scores from './pages/Scores';
-// import Leaderboard from './pages/Leaderboard';
+import Words from './pages/Words';
 import ScoreBoard from './pages/ScoreBoard';
 import Levels from './pages/Levels';
 
@@ -16,6 +16,7 @@ export default function App(props) {
 
   const style = {
     display: 'grid',
+    minHeight: 100 + 'vh',
     margin: 'auto',
     background: 'linear-gradient(318deg, #c123e2, #238be2, #d44afb)',
     backgroundSize: 600 + '%' + 600 + '%',
@@ -30,6 +31,7 @@ export default function App(props) {
         <Route path='/smartgame' component={SmartGame} />
         <Route path='/score' component={Scores} />
         <Route path='/scoreboard' component={ScoreBoard} />
+        <Route path='/extreme' component={Words} />
       </Switch>
       <div id="bankedletters" value=""></div>
       <div id="skillscore" value=""></div>
