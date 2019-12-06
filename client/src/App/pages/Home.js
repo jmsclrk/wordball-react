@@ -7,6 +7,13 @@ import LinkToLevel from '../components/LinkToLevel';
 export default function Home() {
 
   function getWord() {
+    if (process.env.NODE_ENV === 'production') {
+      return levelList[Math.floor(Math.random() * levelList.length)];
+    } else {
+      return levelList[0];
+    }
+
+
     return levelList[Math.floor(Math.random() * levelList.length)];
   }
 
@@ -21,7 +28,7 @@ export default function Home() {
       <div className='buttons is-centered'>
         <p className="control">
           <LinkToLevel word={getWord()} >
-            <button className='button is-rounded is-primary is-outlined is-inverted'>Play Now</button>
+            <button id="playbutton" className='button is-rounded is-primary is-outlined is-inverted'>Play Now</button>
           </LinkToLevel>
         </p>
         <p className="control">

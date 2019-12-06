@@ -15,7 +15,19 @@ export default function SubmitScore(props) {
   })
 
   const smallerWidth = {
-    width: 50 + '%'
+    width: 50 + '%',
+    display: 'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    height: '10vh'
+  }
+
+  const centerDisplay = {
+    display: 'inline-block',
+    justifyContent:'center',
+    alignItems:'center',
+    right: -100 + 'px',
+    top: 10 + 'px'
   }
 
   return (
@@ -25,14 +37,13 @@ export default function SubmitScore(props) {
           <form>
             <div className="control">
               <input
+              style={{ textAlign: 'center' }}
                 className="input"
                 type="text"
                 id='playername'
-                placeholder="Find a repository"
+                placeholder="Please enter player name"
               />
-            </div>
-            <div className="control">
-              <a id='submitScore' type='submit' className="button is-outlined">
+              <a id='submitScore' style={centerDisplay} type='submit' className='button is-rounded is-primary is-outlined is-inverted'>
                 Submit
               </a>
             </div>
