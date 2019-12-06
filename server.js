@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/api/getLeaderboard', (req, res) => {
   console.log('reached scores')
   db.collection('scores').find()
+    .sort({ total: -1 })
+    .collation({locale: "en_US", numericOrdering: true})
     .toArray(function (err, results) {
       res.json(results);
     })
