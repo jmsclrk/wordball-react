@@ -183,9 +183,9 @@ class SkillGame extends Component {
       ball.position()
       const x = ball.xPos
       const y = ball.yPos
-      if (inBounds(y2) && ball.isClicked === false) {
-        drawPath(ctx, ball.colour, ball.xPos, ball.yPos, x2, y2)
-      }
+      // if (inBounds(y2) && ball.isClicked === false) {
+      //   drawPath(ctx, ball.colour, ball.xPos, ball.yPos, x2, y2)
+      // }
       ctx.strokeStyle = ball.colour
       ctx.beginPath()
       ctx.arc(x, y, ball.radius, 0, 2 * Math.PI)
@@ -207,7 +207,7 @@ class SkillGame extends Component {
     return (
       <LayoutGame>
         <div className='container is-centered' id="skillapp">
-          <GameOverlay top="35px" right='40px' />
+          <GameOverlay top="600px" right='40px' />
           <canvas id="canvas" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}></canvas>
           <canvas id="canvas2" width="50" height={CANVAS_HEIGHT}></canvas>
 
