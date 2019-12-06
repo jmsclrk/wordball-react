@@ -120,6 +120,7 @@ class SkillGame extends Component {
     }
     function drawHoles(array) {
       array.forEach(function drawHole(item) {
+        ctx.strokeStyle = 'black'
         ctx.fillStyle = 'black'
         ctx.beginPath()
         ctx.arc(item.xPos, item.yPos, item.radius, 0, 2 * Math.PI)
@@ -132,11 +133,11 @@ class SkillGame extends Component {
     function drawPath(ctx, colour, x1, y1, x2, y2) {
       ctx.strokeStyle = colour
       ctx.beginPath()
-      ctx.lineWidth = 2
+      ctx.lineWidth = 3
       ctx.moveTo(x1, y1)
       ctx.lineTo(x2, y2)
       ctx.stroke()
-      ctx.lineWidth = 2
+      ctx.lineWidth = 3
     }
 
     function fillBalls() {
@@ -156,6 +157,8 @@ class SkillGame extends Component {
       })
     }
     function drawRectangle() {
+      ctx.strokeStyle = 'black'
+
       const radius = game.balls[0].radius
       var x = game.tLeftCorner[0] + radius
       ctx.beginPath()
