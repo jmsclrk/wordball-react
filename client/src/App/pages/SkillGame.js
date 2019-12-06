@@ -17,12 +17,14 @@ class SkillGame extends Component {
   constructor(props) {
     super(props)
     console.log(props)
-    this.seed = new Seed(props.location.levelWord.name)
-    const level = new Level(this.seed, MAX_LETTERS)
-    this.state = { game: new Game(level) }
+    this.state = { game: props.location.playGame }
   }
 
   componentDidMount() {
+    //reset scores
+    $("#skillscore").attr('value', '')
+    $("#smartscore").attr('value', '')
+
     $("#navnext").hide()
     $("#skillscore").hide()
     $("#smartscore").hide()
@@ -75,13 +77,13 @@ class SkillGame extends Component {
 
 
 
-      $('#canvas').bind('mousemove', function (e) {
-        const offset = $(this).offset()
+    $('#canvas').bind('mousemove', function (e) {
+      const offset = $(this).offset()
+      x2 = e.pageX - offset.left
+      y2 = e.pageY - offset.top
+      $('#canvas').mousedown(function (canvas) {
         x2 = e.pageX - offset.left
         y2 = e.pageY - offset.top
-        $('#canvas').mousedown(function (canvas) {
-          x2 = e.pageX - offset.left
-          y2 = e.pageY - offset.top
         $('#canvas').mouseup(function (canvas) {
           if (inBounds(y2)) { ball.giveVelocity(ball.xPos, ball.yPos, x2, y2) }
         })
@@ -110,7 +112,7 @@ class SkillGame extends Component {
         drawBall(ball)
       }
       ctx.fillText('Foul Line!', 200, 620)
-      ctx.strokeStyle= 'white'
+      ctx.strokeStyle = 'white'
       ctx.beginPath();
       ctx.moveTo(0, 600);
       ctx.lineTo(500, 600);
@@ -124,7 +126,7 @@ class SkillGame extends Component {
         ctx.fill()
         ctx.stroke()
         ctx.fillStyle = 'white'
-        ctx.fillText('x' + item.score, item.xPos - 9, item.yPos+5)
+        ctx.fillText('x' + item.score, item.xPos - 9, item.yPos + 5)
       })
     }
     function drawPath(ctx, colour, x1, y1, x2, y2) {
@@ -186,7 +188,7 @@ class SkillGame extends Component {
       ctx.beginPath()
       ctx.arc(x, y, ball.radius, 0, 2 * Math.PI)
       ctx.stroke()
-      ctx.fillText(ball.letter, x + -7, y -1 + ball.radius/2)
+      ctx.fillText(ball.letter, x + -7, y - 1 + ball.radius / 2)
     }
     function checkGameOver() {
       if (game.isGameOver() === true) {
@@ -202,17 +204,17 @@ class SkillGame extends Component {
   render() {
     return (
       <LayoutGame>
-      <div className='container is-centered' id="skillapp">
-        <GameOverlay top="35px" right='40px'/>
-        <canvas id="canvas" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}></canvas>
-        <canvas id="canvas2" width="50" height={CANVAS_HEIGHT}></canvas>
+        <div className='container is-centered' id="skillapp">
+          <GameOverlay top="35px" right='40px' />
+          <canvas id="canvas" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}></canvas>
+          <canvas id="canvas2" width="50" height={CANVAS_HEIGHT}></canvas>
 
-        <Link to={'./smartgame'}>
-          <button className='button is-primary is-inverted is-outline' id="navnext">
-            next
+          <Link to={'./smartgame'}>
+            <button className='button is-primary is-inverted is-outline' id="navnext">
+              next
         </button>
-        </Link>
-      </div>
+          </Link>
+        </div>
       </LayoutGame>
 
     );

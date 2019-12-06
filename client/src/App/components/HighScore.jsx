@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function HighScore(props) {
 
   const scoreStyle = {
-    // ADD CSS
+    backgroundColor: 'rgba(0, 0, 0, 0)'
   }
 
   function replaceMissing(prop, returnIfMissing) {

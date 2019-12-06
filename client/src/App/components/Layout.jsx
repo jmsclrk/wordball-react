@@ -9,6 +9,7 @@ export default function Layout(props) {
 
   const layoutStyle = {
     minHeight: 100 + 'vh',
+    minWidth: 100 + 'vw'
   };
 
   return (
