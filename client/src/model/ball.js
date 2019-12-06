@@ -26,8 +26,8 @@ export default class Ball {
     if(this.isClicked === false) {
       var dy = y2-y1
       var dx = x2-x1
-      this.xVel = dx
-      this.yVel = dy
+      this.xVel = dx * 2
+      this.yVel = dy * 2
       this.isClicked = true
     }
   }
