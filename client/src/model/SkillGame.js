@@ -1,8 +1,9 @@
 import Ball from './ball.js'
 
-
+const MAX_WORDHOLE = 8
 export default class Game {
   constructor(level) {
+
     this.score = 0
     this.balls = []
     this.level = level
@@ -70,12 +71,12 @@ export default class Game {
     }
   }
 
-  isBallinWordHole (ball) {
+  isBallinWordHole(ball) {
     const x = ball.xPos
     const y = ball.yPos
     if (x > 100 && x < 400 && y > 800 && y < 850) {
       this.word.push(ball.letter)
-      if (this.word.length === 9) {
+      if (this.word.length === MAX_WORDHOLE) {
         this.forceGameOver()
       }
       ball.done()
