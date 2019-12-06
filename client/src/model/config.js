@@ -1,6 +1,6 @@
 
 export const MAX_LETTERS = 300
-export const DEFAULT_TIMER = 30
+export const DEFAULT_TIMER = 45
 export const CANVAS_WIDTH = 500
 export const CANVAS_HEIGHT = 900
 

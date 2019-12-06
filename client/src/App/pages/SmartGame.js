@@ -29,7 +29,18 @@ class SmartGame extends Component {
     }
 
     const timeInterval = setInterval(countdown, 1000)
-    let timeLeft = DEFAULT_TIMER
+    let timeLeft
+    if (process.env.NODE_ENV === 'production') {
+      timeLeft = DEFAULT_TIMER
+    } else {
+      timeLeft = 15
+    }
+
+    if(letterGetReq.length<3) {
+      timeLeft = 0
+      gameOver()
+    }
+
     $("#navnext").hide()
     const letters = new Letter()
 
