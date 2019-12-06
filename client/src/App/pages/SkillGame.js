@@ -12,7 +12,6 @@ import Seed from '../../model/seeds'
 import LayoutGame from '../components/LayoutGame'
 import GameOverlay from '../components/GameOverlay'
 
-
 class SkillGame extends Component {
   constructor(props) {
     super(props)
@@ -204,10 +203,12 @@ class SkillGame extends Component {
   }
 
   render() {
+
     return (
       <LayoutGame>
         <div className='container is-centered' id="skillapp">
           <GameOverlay top="600px" right='40px' />
+
           <canvas id="canvas" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}></canvas>
           <canvas id="canvas2" width="50" height={CANVAS_HEIGHT}></canvas>
 

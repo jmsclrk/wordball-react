@@ -29,6 +29,11 @@ export default function Home() {
             <button className='button is-rounded is-primary is-outlined is-inverted'>Scoreboard</button>
           </Link>
         </p>
+        <p className="control">
+          <Link to={'./rules'}>
+            <button className='button is-rounded is-primary is-outlined is-inverted'>Rules</button>
+          </Link>
+        </p>
       </div>
     </Layout>
   )
