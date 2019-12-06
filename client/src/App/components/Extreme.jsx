@@ -6,7 +6,7 @@ export default function Extreme() {
     position: "relative",
     paddingBottom: "56.25%" /* 16:9 */,
     paddingTop: 25,
-    height: 0
+    height: 0,
   }
 
   const styleFrame = {
@@ -18,12 +18,14 @@ export default function Extreme() {
   }
 
   return (
-    <div className="video" style={styleVideo}>
-      <iframe
-        title='Extreme: More Than Words ' style={styleFrame}
-        src={`https://www.youtube.com/embed/UrIiLvg58SY`}
-        frameBorder={0}
-      />
+    <div className='container text-is-cenetered'>
+      <div className="video" style={styleVideo}>
+        <iframe
+          title='Extreme: More Than Words ' style={styleFrame}
+          src={`https://www.youtube.com/embed/UrIiLvg58SY`}
+          frameBorder={0}
+        />
+      </div>
     </div>
   );
 };
