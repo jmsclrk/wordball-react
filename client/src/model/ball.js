@@ -1,6 +1,6 @@
 export default class Ball {
 
-  constructor (y, radius, letter, canvas) {
+  constructor (x, y, radius, letter, canvas) {
     // letter details
     this.letter = letter.character
     this.colour = letter.colour
@@ -8,7 +8,7 @@ export default class Ball {
     this.radius = radius
     this.score = letter.score
 
-    this.xPos = 100 + Math.floor(Math.random() * 300)
+    this.xPos = x || 100 + Math.floor(Math.random() * 300)
     this.yPos = y
 
     this.xVel = 0
