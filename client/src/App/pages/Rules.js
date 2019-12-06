@@ -14,6 +14,11 @@ export default function Rules() {
     <Layout>
       <div className='buttons is-centered'>
         <p className="control">
+          <Link to={'./'}>
+            <button className='button is-rounded is-primary is-outlined is-inverted'>Home</button>
+          </Link>
+        </p>
+        <p className="control">
           <LinkToLevel >
             <button className='button is-rounded is-primary is-outlined is-inverted'>Play Now</button>
           </LinkToLevel>
@@ -25,12 +30,18 @@ export default function Rules() {
         </p>
       </div>
       <div style={style} className='container'>
-        <h1 style={style} className='title'> Rules</h1>
-        <p>Click to fire the balls! </p>
-        <br />
-        <p>Fire down to save up to 8 letters for the word game, or generate extra points by firing unwanted letters into the bonus holes above.</p>
-        <br />
-        <p>Be careful not to choose the wrong letters!</p>
+        <div className='container'>
+          <h1 style={style} className='title'> Rules</h1>
+        </div>
+        <div className='container'>
+          <br />
+          <p>Click to fire the balls! </p>
+          <br />
+          <p>Fire down to save up to 8 letters for the word game, or generate extra points by firing unwanted letters into the bonus holes above.</p>
+          <br />
+          <p>Be careful not to choose the wrong letters!</p>
+        </div>
+
       </div>
     </Layout>
   )
