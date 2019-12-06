@@ -44,7 +44,7 @@ class SkillGame extends Component {
       timeLeft = DEFAULT_TIMER
     } else {
       xVal = 250
-      timeLeft = 45
+      timeLeft = 15
     }
 
     function countdown() {
@@ -59,7 +59,7 @@ class SkillGame extends Component {
 
     countdown()
 
-    game.letters.forEach(letter => game.balls.push(new Ball(750, radius, letter, canvas)))
+    game.letters.forEach(letter => game.balls.push(new Ball(xVal, 750, radius, letter, canvas)))
     var ball = game.balls[0]
 
     interval = setInterval(draw, 10)
