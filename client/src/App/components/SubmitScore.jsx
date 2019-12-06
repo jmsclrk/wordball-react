@@ -6,8 +6,8 @@ export default function SubmitScore(props) {
   $('#submitScore').click(() => {
     const data = {
       name: $('#playername').val(),
-      smartScore: props.smartscore,
-      skillScore: props.skillscore,
+      smartScore: props.smartScore,
+      skillScore: props.skillScore,
       total: (props.smartScore + props.skillScore)
     }
     $.post('/api/getLeaderboard', data)
