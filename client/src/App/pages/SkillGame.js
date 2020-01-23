@@ -133,7 +133,12 @@ class SkillGame extends Component {
       ctx.strokeStyle = colour
       ctx.beginPath()
       ctx.lineWidth = 3
-      ctx.moveTo(x1, y1)
+      const radius = ball.radius
+      const lineLength = (((x2-x1)**2)+((y2-y1)**2))**0.5
+      const distRatio = radius/lineLength
+      const x0 = (((1-distRatio)*x1) + (distRatio*x2))
+      const y0 = (((1-distRatio)*y1) + (distRatio*y2))
+      ctx.moveTo(x0, y0)
       ctx.lineTo(x2, y2)
       ctx.stroke()
       ctx.lineWidth = 3
@@ -182,9 +187,9 @@ class SkillGame extends Component {
       ball.position()
       const x = ball.xPos
       const y = ball.yPos
-      // if (inBounds(y2) && ball.isClicked === false) {
-      //   drawPath(ctx, ball.colour, ball.xPos, ball.yPos, x2, y2)
-      // }
+      if (inBounds(y2) && ball.isClicked === false) {
+        drawPath(ctx, ball.colour, ball.xPos, ball.yPos, x2, y2)
+      }
       ctx.strokeStyle = ball.colour
       ctx.beginPath()
       ctx.arc(x, y, ball.radius, 0, 2 * Math.PI)
