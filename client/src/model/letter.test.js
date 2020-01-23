@@ -12,7 +12,7 @@ it('letter knows its score', () => {
 });
 
 it('letter knows its colour', () => {
-  expect(letter.colour).toBe('#c1dfe8')
+  expect(letter.colour).toBe('#03fca1')
 });
 
 it('getScore gets a score for a character', () => {
@@ -20,5 +20,5 @@ it('getScore gets a score for a character', () => {
 });
 
 it('getColour gets a colour for a character', () => {
-  expect(letter.getColour('A')).toBe('#c1dfe8')
+  expect(letter.getColour('A')).toBe('#03fca1')
 });

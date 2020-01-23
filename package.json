@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "client-install": "npm install --prefix client",
+    "unit-tests": "cd client && npm test && cd ..",
     "start": "node server.js",
     "server": "node server.js",
     "client": "npm start --prefix client",
