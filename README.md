@@ -1,4 +1,4 @@
-# Makers Final Project: ⚽️ 🏀 🏈 ⚾️ 🎱 Wordball 🎱 ⚾️ 🏈 🏀 ⚽️#
+# ⚽️ 🏀 🏈 ⚾️ 🎱 Wordball 🎱 ⚾️ 🏈 🏀 ⚽️ #
 ## Summary ##
 
 A fun game written completely in Javascript using the MERN stack.
