@@ -38,8 +38,8 @@ devDependencies:
 * babel
 
 ## Requirements ##
-* A user can choose whether to bank letters or use them to score points in a skill game powered by a physics engine.
-* A user can use their banked letters to spell out as many words as possible.
+* A user can choose whether to bank letters or use them to score points in a skill round powered by a physics engine.
+* A user can use their banked letters to spell out as many words as possible in a word round.
 * A user can save their name and score to an arcade style leaderboard.
 
 ## Tests ##
@@ -48,4 +48,4 @@ devDependencies:
 
 Jest - unit tests written for key parts of the game.
 
-Cypress - whilst integration tests aren't as common when testing games/gameplay, we decided we would attempt to write some tests using jest to challenge ourselves. We successfully managed to make jest play rounds of the game.
+Cypress - whilst integration tests aren't as common when testing games/gameplay, we decided we would attempt to write some tests using jest to challenge ourselves. We successfully managed to make jest test the gameplay by playing both rounds of the game.
