@@ -9,6 +9,7 @@ import SmartGame from './pages/SmartGame';
 import Scores from './pages/Scores';
 import Words from './pages/Words';
 import Rules from './pages/Rules';
+import VideoRules from './pages/VideoRules';
 import ScoreBoard from './pages/ScoreBoard';
 import Levels from './pages/Levels';
 
@@ -34,6 +35,7 @@ export default function App(props) {
         <Route path='/scoreboard' component={ScoreBoard} />
         <Route path='/extreme' component={Words} />
         <Route path='/rules' component={Rules} />
+        <Route path='/videorules' component={VideoRules} />
       </Switch>
       <div id="bankedletters" value=""></div>
       <div id="skillscore" value=""></div>

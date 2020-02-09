@@ -26,3 +26,23 @@
 #submitScore {
   align-items: center
 }
+
+#video-player-div, #video-buttons-div {
+  display: block;
+  padding-top: 60px;
+  align-items: center;
+  text-align: center;
+}
+
+.video-wrapper {
+  width: 1100px;
+}
+
+.react-player {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#home-link, #home-p {
+  text-align: center !important;
+}

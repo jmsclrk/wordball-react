@@ -41,6 +41,11 @@ export default function Home() {
             <button className='button is-rounded is-primary is-outlined is-inverted'>Rules</button>
           </Link>
         </p>
+        <p className="control">
+          <Link to={'./videorules'}>
+            <button className='button is-rounded is-primary is-outlined is-inverted'>Video Tutorial</button>
+          </Link>
+        </p>
       </div>
     </Layout>
   )

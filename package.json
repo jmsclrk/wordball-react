@@ -22,7 +22,8 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "mongodb": "^3.3.5",
-    "react-icons": "^3.8.0"
+    "react-icons": "^3.8.0",
+    "react-player": "^1.15.2"
   },
   "devDependencies": {
     "cypress": "^3.7.0",
